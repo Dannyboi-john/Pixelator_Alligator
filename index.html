@@ -15,11 +15,14 @@
       justify-content: center;
       padding-bottom: 2%;
       padding-top: 2%;
+      margin-right: 7%;
     }
 
     .input2 {
       display: grid;
       justify-content: center;
+      padding-bottom: 2%;
+      margin-right: 7%;
     }
 
     input {
@@ -29,42 +32,54 @@
       border-radius: 10px;
     }
 
+    .input-field {
+      display: grid;
+      columns: 3;
+    }
+
     .title {
       margin: auto;
       width: 50%;
       text-align: center;
       font-family: Arial;
       font-size: 300%;
+      background-color: rgb(11, 234, 230);
+      border-radius: 10px;
+      box-shadow: 10px 10px 7px rgb(80, 80, 80);
+    }
+
+    .button-container {
+      display: grid;
+      justify-content: center;
+      padding-right: 5%;
     }
 
     .enter-button {
-      padding: 2%;
-      font-family: Arial;
-      color: white;
-      background-color: rgb(42, 82, 85);
-      border-color: grey;
-      border-radius: 2px;
-    }
-
-    .button-div {
+      padding: 90%;
+      text-align: center;
+      margin: auto;
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(80, 80, 80);
+      background-color: rgb(0, 225, 255);
+      border-radius: 5px;
     }
 
   </style>
 </head>
 <body>
   <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
-  <div class="input1">
-    <input type="text" placeholder="Enter the number of stitches (columns)">
-  </div>
-  <div class="input2">
-    <input type="text" placeholder="Enter the number of rows">
-  </div>
-  <div class="button-div">
-  <button class="enter-button">
-    Enter
-  </button>
+  <div class="input-field">
+    <div class="input1">
+      <input type="text" placeholder="Enter the number of stitches (columns)">
+    </div>
+    <div class="input2">
+      <input type="text" placeholder="Enter the number of rows">
+    </div>
+    <div class="button-container">
+    <button class="enter-button">Enter</button>
+    </div>
   </div>
 
-  <!-- Maybe put the input boxes and enter button in a single, nested div (grid?) -->
+  
 </body>
 </html>
