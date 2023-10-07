@@ -32,23 +32,39 @@
     .title {
       margin: auto;
       width: 50%;
-      border: 3px solid green;
       text-align: center;
       font-family: Arial;
       font-size: 300%;
     }
 
+    .enter-button {
+      padding: 2%;
+      font-family: Arial;
+      color: white;
+      background-color: rgb(42, 82, 85);
+      border-color: grey;
+      border-radius: 2px;
+    }
+
+    .button-div {
+    }
 
   </style>
 </head>
 <body>
   <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
-  <div>This is a second, test paragraph to make sure that I have a handle on GitHub</div>
   <div class="input1">
     <input type="text" placeholder="Enter the number of stitches (columns)">
   </div>
   <div class="input2">
     <input type="text" placeholder="Enter the number of rows">
   </div>
+  <div class="button-div">
+  <button class="enter-button">
+    Enter
+  </button>
+  </div>
+
+  <!-- Maybe put the input boxes and enter button in a single, nested div (grid?) -->
 </body>
 </html>
