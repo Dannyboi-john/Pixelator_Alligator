@@ -70,16 +70,23 @@
   <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
   <div class="input-field">
     <div class="input1">
-      <input type="text" placeholder="Enter the number of stitches (columns)">
+      <input type="text" placeholder="Enter the number of stitches (columns)" id="userInputx">
     </div>
     <div class="input2">
-      <input type="text" placeholder="Enter the number of rows">
+      <input type="text" placeholder="Enter the number of rows" id="userInputy">
     </div>
     <div class="button-container">
-    <button class="enter-button">Enter</button>
+    <button class="enter-button" onclick="getInput()">Enter</button>
     </div>
   </div>
 
-  
+  <script>
+    function getInput() {
+      var inputx = document.getElementById("userInputx").value;
+      var inputy = document.getElementById("userInputy").value;
+      console.log(inputx);
+      console.log(inputy);
+    }
+  </script>
 </body>
 </html>
