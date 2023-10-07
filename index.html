@@ -59,6 +59,7 @@
       text-align: center;
       margin: auto;
       font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
       color: rgb(80, 80, 80);
       background-color: rgb(0, 225, 255);
       border-radius: 5px;
@@ -76,7 +77,7 @@
       <input type="text" placeholder="Enter the number of rows" id="userInputy">
     </div>
     <div class="button-container">
-    <button class="enter-button" onclick="getInput()">Enter</button>
+    <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
     </div>
   </div>
 
@@ -86,7 +87,15 @@
       var inputy = document.getElementById("userInputy").value;
       console.log(inputx);
       console.log(inputy);
-    }
+      alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
+    };
+
+    document.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("myBtn").click();
+      }
+    });
   </script>
 </body>
 </html>
