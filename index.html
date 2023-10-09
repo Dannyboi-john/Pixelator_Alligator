@@ -65,6 +65,23 @@
       border-radius: 5px;
     }
 
+    .photo-reciever {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5%;
+      border: 3px solid blueviolet;
+      margin-right: 25%;
+      margin-left: 25%;
+      margin-top: 5%;
+      background-color: rgb(62, 175, 212)
+
+    }
+
+    .photo-reciever:hover {
+      background-color:aquamarine;
+    }
+
   </style>
 </head>
 <body>
@@ -80,6 +97,8 @@
     <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
     </div>
   </div>
+
+  <div class="photo-reciever" id="drop-zone">Drag and drop images from your file explorer into this Drop Zone!</div>
 
   <script>
     function getInput() {
