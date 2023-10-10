@@ -74,12 +74,14 @@
       margin-right: 25%;
       margin-left: 25%;
       margin-top: 5%;
-      background-color: rgb(62, 175, 212)
+      background-color: rgb(62, 175, 212);
+      transition: 0.3s;
 
     }
 
     .photo-reciever:hover {
       background-color:aquamarine;
+      transition: 0.3s;
     }
 
   </style>
@@ -98,9 +100,16 @@
     </div>
   </div>
 
-  <div class="photo-reciever" id="drop-zone">Drag and drop images from your file explorer into this Drop Zone!</div>
+  <div 
+    class="photo-reciever" 
+    id="drop-zone" 
+    ondrop="dropHandler(event)"
+    ondragover="dragOverHandler(event)">
+    Drag and drop images from your file manager into this Drop Zone!</div>
 
   <script>
+
+    //Gets variables and stores them in variables
     function getInput() {
       var inputx = document.getElementById("userInputx").value;
       var inputy = document.getElementById("userInputy").value;
@@ -109,12 +118,41 @@
       alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
     };
 
-    document.addEventListener("keypress", function(event) {
+    //'Enter' Event listener
+    document.addEventListener("keypress", function(event)) {
       if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("myBtn").click();
-      }
-    });
+        }
+    };
+
+    //Drop handler
+    function dropHandler(ev) {
+      console.log("File(s) dropped!");
+      ev.preventDefault();
+    };
+
+    //Dragover handler
+    function dragOverHandler(ev) {
+      //Prevents default behaviour
+      console.log('Files in drop zone!');
+      ev.preventDefault();
+    };
+
+      if (ev.dataTransfer.items) {
+        //Use dataTransferItemList interface to access the file(s)
+        [...ev.dataTransfer.items].forEach((items, i) => {
+          //If dropped items aren't files, reject them
+          if (item.kind === 'file') {
+            const file = item.getAsFile();
+          }
+        });
+      } else {
+        //Use dataTransfer interface to access the files
+        [...ev.dataTransfer.files].forEach((file, i) => {
+          console.log(`… file[${i}].name = ${file.name}`);
+        });
+      };
   </script>
 </body>
 </html>
