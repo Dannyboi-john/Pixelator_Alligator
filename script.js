@@ -17,22 +17,33 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-//Drop handler
-function dropHandler(ev) {
-  console.log("File(s) dropped!");
-  ev.preventDefault();
-};
+
 
 //Dragover handler
 function dragOverHandler(ev) {
   //Prevents default behaviour
   console.log('Files in drop zone!');
   ev.preventDefault();
+  dragText.textContent = 'Release to Upload!';
 };
 
+  function dragLeaveHandler(ev) {
+  //Changes text within photo-reciever back to normal.
+  ev.preventDefault();
+  dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
+  }
+
+//Helpful text when user drags over area
+const dragText = document.querySelector('.photo-reciever');
+
+
+//Drop handler
+function dropHandler(ev) {
+  console.log("File(s) dropped!");
+  ev.preventDefault();
   if (ev.dataTransfer.items) {
     //Use dataTransferItemList interface to access the file(s)
-    [...ev.dataTransfer.items].forEach((items, i) => {
+    [...ev.dataTransfer.items].forEach((item, i) => {
       //If dropped items aren't files, reject them
       if (item.kind === 'file') {
         const file = item.getAsFile();
@@ -43,4 +54,5 @@ function dragOverHandler(ev) {
     [...ev.dataTransfer.files].forEach((file, i) => {
       console.log(`… file[${i}].name = ${file.name}`);
     });
-  };
+  }
+}

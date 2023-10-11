@@ -24,10 +24,15 @@
 
   <div 
     class="photo-reciever" 
-    id="drop-zone" 
+    id="drop-zone"
     ondrop="dropHandler(event)"
-    ondragover="dragOverHandler(event)">
+    ondragover="dragOverHandler(event)"
+    ondragleave="dragLeaveHandler(event)">
     Drag and drop images from your file manager into this Drop Zone!</div>
+  
+  <div id="photo-displayer">
+    
+  </div>
 
   <script src="script.js"></script>
 </body>
