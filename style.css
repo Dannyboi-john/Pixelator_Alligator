@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+
 body {
     background-color: lightblue;
   }
@@ -33,7 +35,8 @@ body {
     margin: auto;
     width: 50%;
     text-align: center;
-    font-family: Arial;
+    font-family: 'Poppins';
+    font-weight: 200;
     font-size: 300%;
     background-color: rgb(11, 234, 230);
     border-radius: 10px;
@@ -50,7 +53,7 @@ body {
     padding: 90%;
     text-align: center;
     margin: auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Poppins';
     font-weight: bold;
     color: rgb(80, 80, 80);
     background-color: rgb(0, 225, 255);
@@ -62,16 +65,19 @@ body {
     justify-content: center;
     align-items: center;
     padding: 5%;
-    border: 3px solid blueviolet;
     margin-right: 25%;
     margin-left: 25%;
     margin-top: 5%;
     background-color: rgb(62, 175, 212);
     transition: 0.3s;
+    font-family: 'Poppins';
+    font-weight: 500;
 
   }
 
   .photo-reciever:hover {
     background-color:aquamarine;
     transition: 0.3s;
+    font-family: 'Poppins';
+    border: 1px solid blueviolet;
   }
