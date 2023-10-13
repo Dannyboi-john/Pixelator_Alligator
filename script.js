@@ -49,6 +49,15 @@ function dropHandler(ev) {
       if (item.kind === 'file') {
         const file = item.getAsFile();
         console.log(`… file[${i}].name = ${file.name}`);
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          let imgURL = reader.result;
+          // console.log(imgURL);
+          document.getElementById("photo-displayer").innerHTML = `<img src="${imgURL}">`;
+        };
+        
+        reader.readAsDataURL(file);
       }
     });
   } else {
