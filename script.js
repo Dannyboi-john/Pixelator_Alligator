@@ -42,6 +42,7 @@ function dropHandler(ev) {
   console.log("File(s) dropped!");
   ev.preventDefault();
   dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
+  
   if (ev.dataTransfer.items) {
     //Use dataTransferItemList interface to access the file(s)
     [...ev.dataTransfer.items].forEach((item, i) => {
@@ -56,7 +57,7 @@ function dropHandler(ev) {
           // console.log(imgURL);
           document.getElementById("photo-displayer").innerHTML = `<img src="${imgURL}">`;
         };
-        
+
         reader.readAsDataURL(file);
       }
     });

@@ -4,6 +4,9 @@ body {
     background-color: lightblue;
   }
 
+  .photo-reciever {
+    width: 50%;
+  }
   .input1 {
     display: grid;
     justify-content: center;
