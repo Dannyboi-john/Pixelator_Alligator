@@ -99,5 +99,7 @@ body {
 
   .google-frame {
     border: 1px solid grey;
+    margin-top: 10%;
+    padding-bottom: 20%;
   }
   }
