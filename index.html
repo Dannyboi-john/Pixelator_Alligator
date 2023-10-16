@@ -9,16 +9,22 @@
 
 <body>
   <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
+  
+  <div class="inputs-and-iframe-grid">
+    <div class="input-field">
+      <div class="input1">
+        <input type="text" placeholder="Enter the number of stitches (columns)" id="userInputx">
+      </div>
+      <div class="input2">
+        <input type="text" placeholder="Enter the number of rows" id="userInputy">
+      </div>
+      <div class="button-container">
+      <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
+      </div>
+    </div>
 
-  <div class="input-field">
-    <div class="input1">
-      <input type="text" placeholder="Enter the number of stitches (columns)" id="userInputx">
-    </div>
-    <div class="input2">
-      <input type="text" placeholder="Enter the number of rows" id="userInputy">
-    </div>
-    <div class="button-container">
-    <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
+    <div class="google-frame">
+
     </div>
   </div>
 
@@ -29,12 +35,13 @@
     ondragover="dragOverHandler(event)"
     ondragleave="dragLeaveHandler(event)">
     Drag and drop images from your file manager into this Drop Zone!</div>
-  
+
   <div 
     id="photo-displayer"
     class="display-div">
-    
   </div>
+
+  <button>Pixelate!</button>
 
   <script src="script.js"></script>
 </body>
