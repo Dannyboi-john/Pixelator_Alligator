@@ -8,27 +8,30 @@
 </head>
 
 <body>
+
   <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
 
-  <div class="input-field">
-    <div class="input1">
-      <input type="text" placeholder="Enter the number of stitches (columns)" id="userInputx">
+  <div class="input-grid">
+    <div class="input-dimensions">
+      <div class="input1">
+        <input type="text" placeholder="Enter the number of stitches (columns)" id="userInputx">
+      </div>
+      <div class="input2">
+        <input type="text" placeholder="Enter the number of rows" id="userInputy">
+      </div>
+      <div class="button-container">
+      <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
+      </div>
     </div>
-    <div class="input2">
-      <input type="text" placeholder="Enter the number of rows" id="userInputy">
-    </div>
-    <div class="button-container">
-    <button class="enter-button" id="myBtn" onclick="getInput()">Enter</button>
-    </div>
-  </div>
 
-  <div 
-    class="photo-reciever" 
-    id="drop-zone"
-    ondrop="dropHandler(event)"
-    ondragover="dragOverHandler(event)"
-    ondragleave="dragLeaveHandler(event)">
-    Drag and drop images from your file manager into this Drop Zone!</div>
+    <div 
+      class="photo-reciever" 
+      id="drop-zone"
+      ondrop="dropHandler(event)"
+      ondragover="dragOverHandler(event)"
+      ondragleave="dragLeaveHandler(event)">
+      Drag and drop images from your file manager into this Drop Zone!</div>
+  </div>
   
   <div 
     id="photo-displayer"
