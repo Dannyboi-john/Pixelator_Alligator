@@ -17,8 +17,6 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-
-
 //Dragover handler
 function dragOverHandler(ev) {
   //Prevents default behaviour
@@ -55,7 +53,7 @@ function dropHandler(ev) {
         reader.onload = () => {
           let imgURL = reader.result;
           // console.log(imgURL);
-          document.getElementById("photo-displayer").innerHTML = `<img src="${imgURL}">`;
+          document.getElementById("drop-zone").innerHTML = `<img src="${imgURL}">`;
         };
 
         reader.readAsDataURL(file);
