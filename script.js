@@ -6,7 +6,7 @@ function getInput() {
   var inputy = document.getElementById("userInputy").value;
   console.log(inputx);
   console.log(inputy);
-  alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
+  // alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
 };
 
 //'Enter' Event listener
@@ -29,7 +29,7 @@ function dragOverHandler(ev) {
   //Changes text within photo-reciever back to normal.
   ev.preventDefault();
   dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
-  }
+  };
 
 //Helpful text when user drags over area
 const dragText = document.querySelector('.photo-reciever');
@@ -53,10 +53,13 @@ function dropHandler(ev) {
         reader.onload = () => {
           let imgURL = reader.result;
           // console.log(imgURL);
-          document.getElementById("drop-zone").innerHTML = `<img src="${imgURL}">`;
+          document.getElementById("drop-zone").innerHTML = `<img id="dropped-image" src="${imgURL}">`;
         };
 
         reader.readAsDataURL(file);
+
+        //Fills canvas on drop
+        canvasFill();
       }
     });
   } else {
@@ -65,4 +68,13 @@ function dropHandler(ev) {
       console.log(`… file[${i}].name = ${file.name}`);
     });
   }
-}
+};
+
+
+// Failed to execute 'drawImage' on 'CanvasRenderingContext2D':
+function canvasFill() {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const img = document.getElementById("dropped-image");
+  ctx.drawImage(img, 10, 10);
+};

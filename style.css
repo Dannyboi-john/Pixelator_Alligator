@@ -87,6 +87,12 @@ body {
     border-radius: 10px;
   }
 
+  .photo-reciever img {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+  }
+
   .photo-reciever:hover {
     background-color:aquamarine;
     transition: 0.3s;
@@ -120,4 +126,18 @@ body {
     color: black;
     font-family: 'Poppins';
     border-radius: 5px;
+  }
+
+  .grid {
+    margin: 0;
+    padding: 20px;
+    border: none;
+    outline: 1px solid black;
+    display: inline-block;
+  }
+
+  .canvas-class {
+    height: 500;
+    width: 1000;
+    border: 1px solid grey;
   }
