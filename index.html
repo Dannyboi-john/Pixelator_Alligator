@@ -28,6 +28,7 @@
         <button
           class="pixelate-button"
           id="pixelate-btn"
+          onclick="pixelate()"
           >Pixelate!
         </button>
       </div>
@@ -42,8 +43,11 @@
       Drag and drop images from your file manager into this Drop Zone!</div>
   </div>
 
-  <canvas id="canvas" class="canvas-class" height="300" width="200">
-  </canvas>
+  <canvas id="myCanvas"
+  class="canvas-class"
+  width="500"
+  height="500"
+  ></canvas>
 
   <script src="script.js"></script>
 </body>

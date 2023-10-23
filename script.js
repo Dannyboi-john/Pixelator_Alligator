@@ -53,13 +53,10 @@ function dropHandler(ev) {
         reader.onload = () => {
           let imgURL = reader.result;
           // console.log(imgURL);
-          document.getElementById("drop-zone").innerHTML = `<img id="dropped-image" src="${imgURL}">`;
+          document.getElementById("drop-zone").innerHTML = `<img id="dropped-img" src="${imgURL}">`;
         };
 
         reader.readAsDataURL(file);
-
-        //Fills canvas on drop
-        canvasFill();
       }
     });
   } else {
@@ -71,10 +68,25 @@ function dropHandler(ev) {
 };
 
 
-// Failed to execute 'drawImage' on 'CanvasRenderingContext2D':
-function canvasFill() {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  const img = document.getElementById("dropped-image");
-  ctx.drawImage(img, 10, 10);
-};
+
+function pixelate(source, pixel_size) {
+
+  // Initiate canvas in drop zone
+  const canvas = document.getElementById('dropped-image');
+  const ctx = canvas.getContext('2d');
+
+  ctx.scale(1 / pixel_size, 1 / pixel_size);
+  ctx.drawImage(source, 0, 0);
+  // Make next drawing erase what's currently on the canvas
+  ctx.globalCompositeOperation = 'copy';
+  // Nearest Neighbor
+  ctx.imageSmoothingEnabled = false;
+  // Scale up
+  ctx.setTransform(pixel_size, 0, 0, pixel_size, 0, 0);
+  ctx.drawImage(canvas, 0, 0);
+
+  // Reset all to defaults
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.imageSmoothingEnabled = true;
+}
