@@ -1,9 +1,10 @@
 
 
-//Gets variables and stores them in variables
+//Gets width and height and stores them in variables
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
   var inputy = document.getElementById("userInputy").value;
+  pixelate(inputx, inputy)
   console.log(inputx);
   console.log(inputy);
   // alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
@@ -51,12 +52,11 @@ function dropHandler(ev) {
 
         const reader = new FileReader();
         reader.onload = () => {
-          let imgURL = reader.result;
-          // console.log(imgURL);
+          imgURL = reader.result;
           document.getElementById("drop-zone").innerHTML = `<img id="dropped-img" src="${imgURL}">`;
         };
-
         reader.readAsDataURL(file);
+
       }
     });
   } else {
@@ -69,24 +69,33 @@ function dropHandler(ev) {
 
 
 
-function pixelate(source, pixel_size) {
+function pixelate(pixel_size_x, pixel_size_y) {
+
+  console.log(imgURL);
 
   // Initiate canvas in drop zone
-  const canvas = document.getElementById('dropped-image');
+  const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.src = imgURL;
 
-  ctx.scale(1 / pixel_size, 1 / pixel_size);
-  ctx.drawImage(source, 0, 0);
+  ctx.scale(1 / pixel_size_x, 1 /  pixel_size_y);
+  ctx.drawImage(img, 0, 0);
+
   // Make next drawing erase what's currently on the canvas
   ctx.globalCompositeOperation = 'copy';
+
   // Nearest Neighbor
   ctx.imageSmoothingEnabled = false;
-  // Scale up
-  ctx.setTransform(pixel_size, 0, 0, pixel_size, 0, 0);
-  ctx.drawImage(canvas, 0, 0);
 
-  // Reset all to defaults
+  // Scale up
+  ctx.setTransform(pixel_size_x, 0, 0, pixel_size_y, 0, 0);
+  ctx.drawImage(canvas, 0, 0);
+  
+  // reset all to defaults
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalCompositeOperation = 'source-over';
   ctx.imageSmoothingEnabled = true;
-}
+
+
+};
