@@ -53,10 +53,12 @@ function dropHandler(ev) {
         const reader = new FileReader();
         reader.onload = () => {
           imgURL = reader.result;
-          document.getElementById("drop-zone").innerHTML = `<img id="dropped-img" src="${imgURL}">`;
+          document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
+          imgSize();
         };
         reader.readAsDataURL(file);
 
+        //imgSize();
       }
     });
   } else {
@@ -68,10 +70,15 @@ function dropHandler(ev) {
 };
 
 
+// I can't seem to access the uploaded img properties, commented out for now
+
+//function imgSize() {
+  //let realWidth = imgURL.width;
+  //let realHeight = imgURL.height;
+  //alert(`Original width = ${realWidth}, Original height = ${realHeight}`);
+//}
 
 function pixelate(pixel_size_x, pixel_size_y) {
-
-  console.log(imgURL);
 
   // Initiate canvas in drop zone
   const canvas = document.getElementById('myCanvas');
@@ -96,6 +103,4 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalCompositeOperation = 'source-over';
   ctx.imageSmoothingEnabled = true;
-
-
 };
