@@ -54,11 +54,12 @@ function dropHandler(ev) {
         reader.onload = () => {
           imgURL = reader.result;
           document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
+          // Add onload function here to ensure
+          // getImgSize only happens when img is loaded
+          // to avoid error (Only working on 2nd attempt)
           getImgSize();
         };
         reader.readAsDataURL(file);
-
-        //imgSize();
       }
     });
   } else {
@@ -69,7 +70,7 @@ function dropHandler(ev) {
   }
 };
 
-
+// Function that gets dimensions of image. Only works sometimes??
 function getImgSize() {
   const element = document.getElementById("dropped_img");
   console.log(`Width: ${element.naturalWidth}`);
