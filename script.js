@@ -54,7 +54,7 @@ function dropHandler(ev) {
         reader.onload = () => {
           imgURL = reader.result;
           document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
-          imgSize();
+          getImgSize();
         };
         reader.readAsDataURL(file);
 
@@ -70,13 +70,11 @@ function dropHandler(ev) {
 };
 
 
-// I can't seem to access the uploaded img properties, commented out for now
-
-//function imgSize() {
-  //let realWidth = imgURL.width;
-  //let realHeight = imgURL.height;
-  //alert(`Original width = ${realWidth}, Original height = ${realHeight}`);
-//}
+function getImgSize() {
+  const element = document.getElementById("dropped_img");
+  console.log(`Width: ${element.naturalWidth}`);
+  console.log(`Height: ${element.naturalHeight}`);
+};
 
 function pixelate(pixel_size_x, pixel_size_y) {
 
