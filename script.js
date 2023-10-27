@@ -53,11 +53,14 @@ function dropHandler(ev) {
         const reader = new FileReader();
         reader.onload = () => {
           imgURL = reader.result;
-          document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
-          // Add onload function here to ensure
-          // getImgSize only happens when img is loaded
-          // to avoid error (Only working on 2nd attempt)
+        //  document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
+          submitted_img = document.createElement('img');
+          submitted_img.src = imgURL;
+          submitted_img.setAttribute("id", "dropped_img");
+          document.getElementById("drop-zone").innerHTML = ""
+          document.getElementById("drop-zone").appendChild(submitted_img);
           getImgSize();
+
         };
         reader.readAsDataURL(file);
       }
