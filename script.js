@@ -78,6 +78,8 @@ function getImgSize() {
   const element = document.getElementById("dropped_img");
   console.log(`Width: ${element.naturalWidth}`);
   console.log(`Height: ${element.naturalHeight}`);
+  real_width = element.naturalWidth;
+  real_height = element.naturalHeight
 };
 
 function pixelate(pixel_size_x, pixel_size_y) {
@@ -88,7 +90,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
   const img = new Image();
   img.src = imgURL;
 
-  ctx.scale(1 / pixel_size_x, 1 /  pixel_size_y);
+  ctx.scale((pixel_size_x / real_width), (pixel_size_y / real_height));
   ctx.drawImage(img, 0, 0);
 
   // Make next drawing erase what's currently on the canvas
