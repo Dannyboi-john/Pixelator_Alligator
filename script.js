@@ -58,7 +58,6 @@ function dropHandler(ev) {
           submitted_img.setAttribute("id", "dropped_img");
           document.getElementById("drop-zone").innerHTML = ""
           document.getElementById("drop-zone").appendChild(submitted_img);
-          getImgSize();
 
         };
         reader.readAsDataURL(file);
@@ -78,12 +77,13 @@ function getImgSize() {
   console.log(`Width: ${element.naturalWidth}`);
   console.log(`Height: ${element.naturalHeight}`);
   real_width = element.naturalWidth;
-  real_height = element.naturalHeight
+  real_height = element.naturalHeight;
 };
 
 function pixelate(pixel_size_x, pixel_size_y) {
 
   // Initiate canvas in drop zone
+  getImgSize();
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
