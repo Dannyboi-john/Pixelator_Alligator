@@ -7,7 +7,6 @@ function getInput() {
   pixelate(inputx, inputy)
   console.log(inputx);
   console.log(inputy);
-  // alert(`The number of columns and rows you have selected are ${inputx} and ${inputy}!`);
 };
 
 //'Enter' Event listener
@@ -87,6 +86,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
   // Initiate canvas in drop zone
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   const img = new Image();
   img.src = imgURL;
 
@@ -100,7 +100,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.imageSmoothingEnabled = false;
 
   // Scale up
-  ctx.setTransform(pixel_size_x, 0, 0, pixel_size_y, 0, 0);
+  ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
   ctx.drawImage(canvas, 0, 0);
   
   // reset all to defaults
