@@ -5,8 +5,7 @@ function getInput() {
   var inputx = document.getElementById("userInputx").value;
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy)
-  console.log(inputx);
-  console.log(inputy);
+  document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!"
 };
 
 //'Enter' Event listener
