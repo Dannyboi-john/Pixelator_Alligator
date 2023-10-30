@@ -149,4 +149,9 @@ body {
 
   .img-notice {
     font-family: 'Poppins';
+    justify-content: center;
+    font-weight: bold;
+    align-content: center;
+    display: flex;
+    margin-bottom: 5%;
   }
