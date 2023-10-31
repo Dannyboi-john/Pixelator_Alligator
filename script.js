@@ -100,7 +100,11 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
   // Scale up
   ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
-  ctx.drawImage(canvas, 0, 0);
+
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+  ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, (canvas.width*ratio), (canvas.height*ratio));
   
   // reset all to defaults
   ctx.setTransform(1, 0, 0, 1, 0, 0);
