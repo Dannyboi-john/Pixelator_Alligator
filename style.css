@@ -80,7 +80,7 @@ body {
     margin-right: 25%;
     margin-left: 25%;
     margin-top: 2%;
-    background-color: #292E33;
+    background-color: #5f6b77;
     transition: 0.3s;
     font-family: 'Poppins';
     font-weight: 500;
@@ -96,7 +96,7 @@ body {
   }
 
   .photo-reciever:hover {
-    background-color:#344757;
+    background-color:#86929c;
     transition: 0.3s;
     font-family: 'Poppins';
     border: 1px solid black

@@ -5,7 +5,7 @@ function getInput() {
   var inputx = document.getElementById("userInputx").value;
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy)
-  document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!"
+  document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
 };
 
 //'Enter' Event listener
@@ -48,18 +48,26 @@ function dropHandler(ev) {
         const file = item.getAsFile();
         console.log(`… file[${i}].name = ${file.name}`);
 
+        // Type-checking for valid image files (JPG, JPEG, PNG)
+        let fileType = file.type;
+        let validExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
+
+        // If dropped image is valid format, accept
+        if(validExtensions.includes(fileType)) {
         const reader = new FileReader();
-        reader.onload = () => {
-          imgURL = reader.result;
-        //  document.getElementById("drop-zone").innerHTML = `<img id="dropped_img" src="${imgURL}">`;
-          submitted_img = document.createElement('img');
-          submitted_img.src = imgURL;
-          submitted_img.setAttribute("id", "dropped_img");
-          document.getElementById("drop-zone").innerHTML = ""
-          document.getElementById("drop-zone").appendChild(submitted_img);
+          reader.onload = () => {
+            imgURL = reader.result;
+            submitted_img = document.createElement('img');
+            submitted_img.src = imgURL;
+            submitted_img.setAttribute("id", "dropped_img");
+            document.getElementById("drop-zone").innerHTML = ""
+            document.getElementById("drop-zone").appendChild(submitted_img);
 
         };
         reader.readAsDataURL(file);
+      } else {
+        alert('Oops! Images must be of the format JPG, JPEG, or PNG!')
+      };
       }
     });
   } else {
@@ -97,7 +105,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
   // Nearest Neighbor
   ctx.imageSmoothingEnabled = false;
-
+                      
   // Scale up
   ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
 
@@ -111,3 +119,4 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.globalCompositeOperation = 'source-over';
   ctx.imageSmoothingEnabled = true;
 };
+
