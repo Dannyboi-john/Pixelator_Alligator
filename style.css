@@ -104,10 +104,10 @@ body {
 
   .input-grid {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
-    margin-top: 2%;
-    padding: 5%;
+    margin-top: 5%;
+    padding: 0;
   }
 
   .pixelate-button-container {
@@ -154,4 +154,14 @@ body {
     align-content: center;
     display: flex;
     margin-bottom: 5%;
+  }
+
+  @media only screen and (max-width:800px) {
+    .input-grid {
+      grid-template-columns: 1fr;
+    }
+    .title {
+      margin-bottom: 15%;
+      width: 100%;
+    }
   }
