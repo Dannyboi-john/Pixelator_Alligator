@@ -41,6 +41,7 @@ html, body {
     row-gap: 2%;
     padding-right: 20%;
     padding-bottom: 10%;
+    margin-top: 10%;
   }
 
   .title {
@@ -156,8 +157,9 @@ html, body {
     }
     .title {
       margin-bottom: 15%;
-      width: auto;
+      width: 100%;
       display: block;
+
 
     }
   }
