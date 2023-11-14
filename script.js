@@ -6,6 +6,7 @@ function getInput() {
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy)
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
+  createGrid()
 };
 
 //'Enter' Event listener
@@ -120,3 +121,16 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.imageSmoothingEnabled = true;
 };
 
+function createGrid(x, y) {
+
+  // Test data
+  var x = 10
+  var y = 10
+  for (var rows = 0; rows < x; rows++) {
+    for (var columns = 0; columns < y; columns++) {
+      $("#grid-container").append("<div class='grid'></div>");
+    };
+  };
+  $(".grid").width(real_width/x);
+  $(".grid").height(real_height/y);
+};
