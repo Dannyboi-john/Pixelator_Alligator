@@ -126,8 +126,9 @@ function createGrid(x, y) {
   // Test data
   var x = 10
   var y = 10
-  for (var rows = 0; rows < x; rows++) {
-    for (var columns = 0; columns < y; columns++) {
+  for (var columns = 0; columns < y; columns++) {
+    $("#grid-container").append("<div class='grid'></div>");
+    for (var rows = 0; rows < x; rows++) {
       $("#grid-container").append("<div class='grid'></div>");
     };
   };
