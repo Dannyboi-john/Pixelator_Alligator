@@ -124,11 +124,12 @@ function pixelate(pixel_size_x, pixel_size_y) {
 function createGrid(x, y) {
 
   // Test data
-  var x = 10
-  var y = 10
+  var x = 35
+  var y = 35
   for (var columns = 0; columns < y; columns++) {
-    $("#grid-container").append("<div class='grid'></div>");
+    console.log("column", columns)
     for (var rows = 0; rows < x; rows++) {
+      console.log("row", rows)
       $("#grid-container").append("<div class='grid'></div>");
     };
   };

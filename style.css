@@ -167,7 +167,7 @@ html, body {
   #grid-container {
     position: relative;
     top: 30px;
-    outline: 2px solid #000;
+    border: 2px solid black;
     font-size: 0;
     margin: auto;
     height: 960px;
