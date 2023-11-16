@@ -124,15 +124,22 @@ function pixelate(pixel_size_x, pixel_size_y) {
 function createGrid(x, y) {
 
   // Test data
-  var x = 35
-  var y = 35
+  var x = 35;
+  var y = 35;
   for (var columns = 0; columns < y; columns++) {
-    console.log("column", columns)
+    console.log("column", columns);
     for (var rows = 0; rows < x; rows++) {
-      console.log("row", rows)
-      $("#grid-container").append("<div class='grid'></div>");
+      console.log("row", rows);
+      var unit = $("<div class='grid'></div>");
+      unit.appendTo('#grid-container');
+    //  $("#grid-container").append("<div class='grid'></div>");
     };
   };
-  $(".grid").width(real_width/x);
-  $(".grid").height(real_height/y);
+
+  const gridSelector = document.getElementById("grid-container");
+
+  $(".grid").width(gridSelector.offsetWidth / x);
+  $(".grid").height(gridSelector.offsetHeight / y);
+  console.log("height:", gridSelector.offsetHeight, "px")
+  console.log("width", gridSelector.offsetWidth, "px")
 };
