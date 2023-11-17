@@ -6,7 +6,7 @@ function getInput() {
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy)
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
-  createGrid()
+  createGrid(inputx, inputy)
 };
 
 //'Enter' Event listener
@@ -123,13 +123,12 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
 function createGrid(x, y) {
 
-  // Test data
+  /* Test data
   var x = 35;
   var y = 35;
+  */
   for (var columns = 0; columns < y; columns++) {
-    console.log("column", columns);
     for (var rows = 0; rows < x; rows++) {
-      console.log("row", rows);
       var unit = $("<div class='grid'></div>");
       unit.appendTo('#grid-container');
     //  $("#grid-container").append("<div class='grid'></div>");
@@ -140,6 +139,4 @@ function createGrid(x, y) {
 
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
-  console.log("height:", gridSelector.offsetHeight, "px")
-  console.log("width", gridSelector.offsetWidth, "px")
 };
