@@ -119,16 +119,17 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalCompositeOperation = 'source-over';
   ctx.imageSmoothingEnabled = true;
+
+  // Grab dataURL of pixelated image
+  pixelatedURL = canvas.toDataURL();
+  console.log(pixelatedURL);
 };
 
 function createGrid(x, y) {
-
-  /* Test data
-  var x = 35;
-  var y = 35;
-  */
+  // Initiates the grid based on passed-in parameters
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
+      // Creates a unit of 1 empty div
       var unit = $("<div class='grid'></div>");
       unit.appendTo('#grid-container');
     //  $("#grid-container").append("<div class='grid'></div>");
@@ -136,7 +137,8 @@ function createGrid(x, y) {
   };
 
   const gridSelector = document.getElementById("grid-container");
-
+  // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
+
 };
