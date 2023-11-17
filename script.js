@@ -6,7 +6,8 @@ function getInput() {
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy)
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
-  createGrid(inputx, inputy)
+  clearGrid();
+  createGrid(inputx, inputy);
 };
 
 //'Enter' Event listener
@@ -82,8 +83,6 @@ function dropHandler(ev) {
 // Function that gets dimensions of image. Only works sometimes??
 function getImgSize() {
   const element = document.getElementById("dropped_img");
-  console.log(`Width: ${element.naturalWidth}`);
-  console.log(`Height: ${element.naturalHeight}`);
   real_width = element.naturalWidth;
   real_height = element.naturalHeight;
 };
@@ -121,8 +120,8 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.imageSmoothingEnabled = true;
 
   // Grab dataURL of pixelated image
-  pixelatedURL = canvas.toDataURL();
-  console.log(pixelatedURL);
+  // var pixelatedURL = canvas.toDataURL();
+  // console.log(pixelatedURL);
 };
 
 function createGrid(x, y) {
@@ -133,6 +132,7 @@ function createGrid(x, y) {
       var unit = $("<div class='grid'></div>");
       unit.appendTo('#grid-container');
     //  $("#grid-container").append("<div class='grid'></div>");
+    console.log(x, y);
     };
   };
 
@@ -141,4 +141,11 @@ function createGrid(x, y) {
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
 
+  // Places pixelated image in grid-container
+  // gridSelector.src = pixelatedURL;
+
 };
+
+function clearGrid() {
+  document.getElementById("grid-container").innerHTML = "";
+}
