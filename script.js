@@ -29,7 +29,7 @@ function dragOverHandler(ev) {
   function dragLeaveHandler(ev) {
   //Changes text within photo-reciever back to normal.
   ev.preventDefault();
-  dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
+  dragText.textContent = 'Drag and drop images here!';
   };
 
 //Helpful text when user drags over area
@@ -120,11 +120,22 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.imageSmoothingEnabled = true;
 
   // Grab dataURL of pixelated image
-  // var pixelatedURL = canvas.toDataURL();
+  pixelatedURL = canvas.toDataURL();
   // console.log(pixelatedURL);
 };
 
 function createGrid(x, y) {
+
+  const gridSelector = document.getElementById("grid-supercontainer");
+
+
+  // Places pixelated image in grid-supercontainer
+  var imageCreator = document.createElement("img");
+  imageCreator.src = pixelatedURL;
+  console.log(imageCreator);
+  gridSelector.appendChild(imageCreator);
+
+
   // Initiates the grid based on passed-in parameters
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
@@ -136,16 +147,12 @@ function createGrid(x, y) {
     };
   };
 
-  const gridSelector = document.getElementById("grid-container");
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
-
-  // Places pixelated image in grid-container
-  // gridSelector.src = pixelatedURL;
 
 };
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
-}
+};
