@@ -131,8 +131,8 @@ function createGrid(x, y) {
 
   // Places pixelated image in grid-supercontainer
   var imageCreator = document.createElement("img");
+  imageCreator.setAttribute("id", "grid-image");
   imageCreator.src = pixelatedURL;
-  console.log(imageCreator);
   gridSelector.appendChild(imageCreator);
 
 
@@ -155,4 +155,10 @@ function createGrid(x, y) {
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
+  let imageRemover = document.getElementById("grid-image");
+  if (imageRemover === 'null') {
+    console.log("working as indented");
+  } else {
+    imageRemover.parentNode.removeChild(imageRemover);
+  }
 };
