@@ -155,8 +155,9 @@ function createGrid(x, y) {
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
+  // Working on getting the image to clear with grid on new inputs.
   let imageRemover = document.getElementById("grid-image");
-  if (imageRemover === 'null') {
+  if (imageRemover === null) {
     console.log("working as indented");
   } else {
     imageRemover.parentNode.removeChild(imageRemover);
