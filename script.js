@@ -121,7 +121,6 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
   // Grab dataURL of pixelated image
   pixelatedURL = canvas.toDataURL();
-  // console.log(pixelatedURL);
 };
 
 function createGrid(x, y) {
@@ -135,6 +134,10 @@ function createGrid(x, y) {
   imageCreator.src = pixelatedURL;
   gridSelector.appendChild(imageCreator);
 
+  // Gets height and width of image.
+  imageCreator.onload = function () {
+    getGridSize();
+  }
 
   // Initiates the grid based on passed-in parameters
   for (var columns = 0; columns < y; columns++) {
@@ -143,19 +146,17 @@ function createGrid(x, y) {
       var unit = $("<div class='grid'></div>");
       unit.appendTo('#grid-container');
     //  $("#grid-container").append("<div class='grid'></div>");
-    console.log(x, y);
     };
   };
 
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
-
 };
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
-  // Working on getting the image to clear with grid on new inputs.
+  // If an image is submitted already, clear image. else, display normally.
   let imageRemover = document.getElementById("grid-image");
   if (imageRemover === null) {
     console.log("working as indented");
@@ -163,3 +164,10 @@ function clearGrid() {
     imageRemover.parentNode.removeChild(imageRemover);
   }
 };
+
+function getGridSize() {
+  const imgHeight = document.getElementById("grid-image").naturalHeight;
+  const imgWidth = document.getElementById("grid-image").naturalWidth;
+  console.log(`Height: ${imgHeight}`);
+  console.log(`Width: ${imgWidth}`);
+}
