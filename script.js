@@ -127,7 +127,6 @@ function createGrid(x, y) {
 
   const gridSelector = document.getElementById("grid-supercontainer");
 
-
   // Places pixelated image in grid-supercontainer
   var imageCreator = document.createElement("img");
   imageCreator.setAttribute("id", "grid-image");
