@@ -173,7 +173,7 @@ function getGridSize() {
 }
 
 
-/*
+
 const position = { x: 0, y: 0 }
 interact('.pixelated-image').draggable({
   listeners: {
@@ -189,7 +189,7 @@ interact('.pixelated-image').draggable({
     },
   }
 })
-
+/*
 interact('.pixelated-image')
   .resizable({
     edges: {top: true, left: true, bottom: true, right: true},
@@ -235,7 +235,7 @@ interact('.pixelated-image')
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
-        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+      //  target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       }
     },
     
@@ -251,15 +251,31 @@ interact('.pixelated-image')
       })
     ],
     
-    
+    inertia: false
   })
   .draggable({
     listeners: { move: window.dragMoveListener },
-    inertia: true,
+    inertia: false,
     modifiers: [
       interact.modifiers.restrictRect({
-        restriction: 'grid-container',
+      //  restriction: 'grid-container',
         endOnly: true
       })
     ]
   })
+
+function dragMoveListener (event) {
+  var target = event.target
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+  // translate the element
+  target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+  // update the posiion attributes
+  target.setAttribute('data-x', x)
+  target.setAttribute('data-y', y)
+}
+
+window.dragMoveListener = dragMoveListener
