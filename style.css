@@ -166,7 +166,6 @@ html, body {
 
   #grid-container {
     position: absolute;
-    top: 30px;
     border: 2px solid black;
     font-size: 0;
     margin: auto;
@@ -194,6 +193,6 @@ html, body {
     position: absolute;
     border: 1px solid red;
     box-sizing: border-box;
-    opacity: 0.5
-
+    opacity: 0.5;
+    touch-action: none;
   }
