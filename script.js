@@ -213,7 +213,6 @@ interact('.pixelated-image')
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
-      //  target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       }
     },
     
