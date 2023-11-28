@@ -1,6 +1,5 @@
 
 
-
 //Gets width and height and stores them in variables
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
@@ -11,6 +10,7 @@ function getInput() {
   createGrid(inputx, inputy);
 };
 
+
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -18,6 +18,7 @@ document.addEventListener("keypress", function(event) {
     document.getElementById("myBtn").click();
     }
 });
+
 
 //Dragover handler
 function dragOverHandler(ev) {
