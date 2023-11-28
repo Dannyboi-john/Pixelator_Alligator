@@ -1,5 +1,6 @@
 
 
+
 //Gets width and height and stores them in variables
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
