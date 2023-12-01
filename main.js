@@ -4,10 +4,12 @@
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
   var inputy = document.getElementById("userInputy").value;
-  pixelate(inputx, inputy)
+  var gridInputx = document.getElementById("grid-constuctor-x").value;
+  var gridInputy = document.getElementById("grid-constructor-y").value;
+  pixelate(inputx, inputy);
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
   clearGrid();
-  createGrid(inputx, inputy);
+  createGrid(gridInputx, gridInputy);
 };
 
 
@@ -172,7 +174,7 @@ function getGridSize() {
   const imgWidth = document.getElementById("grid-image").naturalWidth;
   console.log(`Height: ${imgHeight}`);
   console.log(`Width: ${imgWidth}`);
-}
+};
 
 
 
