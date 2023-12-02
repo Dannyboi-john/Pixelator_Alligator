@@ -30,7 +30,7 @@ function dragOverHandler(ev) {
   dragText.textContent = 'Release to Upload!';
 };
 
-  function dragLeaveHandler(ev) {
+function dragLeaveHandler(ev) {
   //Changes text within photo-reciever back to normal.
   ev.preventDefault();
   dragText.textContent = 'Drag and drop images here!';
