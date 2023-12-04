@@ -1,4 +1,4 @@
-
+import { dragOverHandler } from "./dragOverhandler.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -21,7 +21,7 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-
+/*
 //Dragover handler
 function dragOverHandler(ev) {
   //Prevents default behaviour
@@ -29,6 +29,7 @@ function dragOverHandler(ev) {
   ev.preventDefault();
   dragText.textContent = 'Release to Upload!';
 };
+*/
 
 function dragLeaveHandler(ev) {
   //Changes text within photo-reciever back to normal.
