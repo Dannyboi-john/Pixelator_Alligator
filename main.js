@@ -1,4 +1,5 @@
 import { dragOverHandler as dragOverHandler } from "./drag-over-handler.js";
+import { dragLeaveHandler } from "./scripts/drag-leave-handler.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -35,12 +36,13 @@ function dragOverHandler(ev) {
 };
 */
 
-
+/*
 function dragLeaveHandler(ev) {
   //Changes text within photo-reciever back to normal.
   ev.preventDefault();
   dragText.textContent = 'Drag and drop images here!';
   };
+*/
 
 //Helpful text when user drags over area
 const dragText = document.querySelector('.photo-reciever');
@@ -68,7 +70,7 @@ function dropHandler(ev) {
         if(validExtensions.includes(fileType)) {
         const reader = new FileReader();
           reader.onload = () => {
-            let imgURL = reader.result;
+            window.imgURL = reader.result;
             const submitted_img = document.createElement('img');
             submitted_img.src = imgURL;
             submitted_img.setAttribute("id", "dropped_img");
@@ -144,7 +146,7 @@ function createGrid(x, y) {
   let canvas = document.getElementById("myCanvas");
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
-  console.log(pixelatedURL);
+
   gridSelector.appendChild(imageCreator);
 
   // Gets height and width of image.
@@ -181,8 +183,6 @@ function clearGrid() {
 function getGridSize() {
   const imgHeight = document.getElementById("grid-image").naturalHeight;
   const imgWidth = document.getElementById("grid-image").naturalWidth;
-  console.log(`Height: ${imgHeight}`);
-  console.log(`Width: ${imgWidth}`);
 };
 
 
