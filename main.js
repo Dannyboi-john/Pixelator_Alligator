@@ -1,5 +1,6 @@
 import { dragOverHandler as dragOverHandler } from "./drag-over-handler.js";
-import { dragLeaveHandler } from "./scripts/drag-leave-handler.js";
+import { dragLeaveHandler } from "./drag-leave-handler.js";
+import { dropHandler } from "./drop-handler.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -25,75 +26,6 @@ document.addEventListener("keypress", function(event) {
     document.getElementById("myBtn").click();
     }
 });
-
-/*
-//Dragover handler
-function dragOverHandler(ev) {
-  //Prevents default behaviour
-  console.log('Files in drop zone!');
-  ev.preventDefault();
-  dragText.textContent = 'Release to Upload!';
-};
-*/
-
-/*
-function dragLeaveHandler(ev) {
-  //Changes text within photo-reciever back to normal.
-  ev.preventDefault();
-  dragText.textContent = 'Drag and drop images here!';
-  };
-*/
-
-//Helpful text when user drags over area
-const dragText = document.querySelector('.photo-reciever');
-
-
-//Drop handler
-function dropHandler(ev) {
-  console.log("File(s) dropped!");
-  ev.preventDefault();
-  dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
-  
-  if (ev.dataTransfer.items) {
-    //Use dataTransferItemList interface to access the file(s)
-    [...ev.dataTransfer.items].forEach((item, i) => {
-      //If dropped items aren't files, reject them
-      if (item.kind === 'file') {
-        const file = item.getAsFile();
-        console.log(`… file[${i}].name = ${file.name}`);
-
-        // Type-checking for valid image files (JPG, JPEG, PNG)
-        let fileType = file.type;
-        let validExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
-
-        // If dropped image is valid format, accept
-        if(validExtensions.includes(fileType)) {
-        const reader = new FileReader();
-          reader.onload = () => {
-            window.imgURL = reader.result;
-            const submitted_img = document.createElement('img');
-            submitted_img.src = imgURL;
-            submitted_img.setAttribute("id", "dropped_img");
-            document.getElementById("drop-zone").innerHTML = ""
-            document.getElementById("drop-zone").appendChild(submitted_img);
-
-        };
-        reader.readAsDataURL(file);
-      } else {
-        alert('Oops! Images must be of the format JPG, JPEG, or PNG!')
-      };
-      }
-    });
-  } else {
-    //Use dataTransfer interface to access the files
-    [...ev.dataTransfer.files].forEach((file, i) => {
-      console.log(`… file[${i}].name = ${file.name}`);
-    });
-  }
-};
-
-// Function that gets dimensions of image. Only works sometimes??
-
 
 function pixelate(pixel_size_x, pixel_size_y) {
 
@@ -203,6 +135,10 @@ interact('.pixelated-image').draggable({
   }
 })
 
+
+
+
+// Interact.js logic
 interact('.pixelated-image')
   .resizable({
     // resize from all edges and corners
@@ -243,16 +179,18 @@ interact('.pixelated-image')
     
     inertia: false
   })
+  /*
   .draggable({
     listeners: { move: window.dragMoveListener },
     inertia: false,
     modifiers: [
       interact.modifiers.restrictRect({
-      //  restriction: 'grid-container',
+        restriction: 'grid-supercontainer',
         endOnly: true
       })
     ]
   })
+*/
 
 function dragMoveListener (event) {
   var target = event.target
@@ -268,4 +206,4 @@ function dragMoveListener (event) {
   target.setAttribute('data-y', y)
 }
 
-window.dragMoveListener = dragMoveListener
+window.dragMoveListener = dragMoveListener;
