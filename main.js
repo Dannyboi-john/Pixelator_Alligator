@@ -1,4 +1,4 @@
-import { dragOverHandler } from "./dragOverhandler.js";
+import { dragOverHandler as dragOverHandler } from "./drag-over-handler.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -12,6 +12,10 @@ function getInput() {
   createGrid(gridInputx, gridInputy);
 };
 
+window.dragOverHandler = dragOverHandler;
+window.dragLeaveHandler = dragLeaveHandler;
+window.dropHandler = dropHandler;
+window.getInput = getInput;
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -30,6 +34,7 @@ function dragOverHandler(ev) {
   dragText.textContent = 'Release to Upload!';
 };
 */
+
 
 function dragLeaveHandler(ev) {
   //Changes text within photo-reciever back to normal.
@@ -63,8 +68,8 @@ function dropHandler(ev) {
         if(validExtensions.includes(fileType)) {
         const reader = new FileReader();
           reader.onload = () => {
-            imgURL = reader.result;
-            submitted_img = document.createElement('img');
+            let imgURL = reader.result;
+            const submitted_img = document.createElement('img');
             submitted_img.src = imgURL;
             submitted_img.setAttribute("id", "dropped_img");
             document.getElementById("drop-zone").innerHTML = ""
@@ -86,24 +91,24 @@ function dropHandler(ev) {
 };
 
 // Function that gets dimensions of image. Only works sometimes??
-function getImgSize() {
-  const element = document.getElementById("dropped_img");
-  real_width = element.naturalWidth;
-  real_height = element.naturalHeight;
-};
+
 
 function pixelate(pixel_size_x, pixel_size_y) {
 
   // Initiate canvas in drop zone
-  getImgSize();
+
+  const element = document.getElementById("dropped_img");
+  let real_width = element.naturalWidth;
+  let real_height = element.naturalHeight;
+
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const img = new Image();
-  img.src = imgURL;
+  const pixelatedImg = new Image();
+  pixelatedImg.src = imgURL;
 
   ctx.scale((pixel_size_x / real_width), (pixel_size_y / real_height));
-  ctx.drawImage(img, 0, 0);
+  ctx.drawImage(pixelatedImg, 0, 0);
 
   // Make next drawing erase what's currently on the canvas
   ctx.globalCompositeOperation = 'copy';
@@ -114,8 +119,8 @@ function pixelate(pixel_size_x, pixel_size_y) {
   // Scale up
   ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
 
-  var hRatio = canvas.width / img.width;
-  var vRatio = canvas.height / img.height;
+  var hRatio = canvas.width / pixelatedImg.width;
+  var vRatio = canvas.height / pixelatedImg.height;
   var ratio = Math.min(hRatio, vRatio);
   ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, (canvas.width*ratio), (canvas.height*ratio));
   
@@ -125,7 +130,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
   ctx.imageSmoothingEnabled = true;
 
   // Grab dataURL of pixelated image
-  pixelatedURL = canvas.toDataURL();
+
 };
 
 function createGrid(x, y) {
@@ -136,7 +141,10 @@ function createGrid(x, y) {
   var imageCreator = document.createElement("img");
   imageCreator.setAttribute("id", "grid-image");
   imageCreator.setAttribute("class", "pixelated-image")
+  let canvas = document.getElementById("myCanvas");
+  const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
+  console.log(pixelatedURL);
   gridSelector.appendChild(imageCreator);
 
   // Gets height and width of image.
