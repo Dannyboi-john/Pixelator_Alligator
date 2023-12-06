@@ -1,6 +1,7 @@
 import { dragOverHandler as dragOverHandler } from "./drag-over-handler.js";
 import { dragLeaveHandler } from "./drag-leave-handler.js";
 import { dropHandler } from "./drop-handler.js";
+import { dragMoveListener } from "./drag-move-listener.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -18,6 +19,7 @@ window.dragOverHandler = dragOverHandler;
 window.dragLeaveHandler = dragLeaveHandler;
 window.dropHandler = dropHandler;
 window.getInput = getInput;
+window.dragMoveListener = dragMoveListener;
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -135,9 +137,6 @@ interact('.pixelated-image').draggable({
   }
 })
 
-
-
-
 // Interact.js logic
 interact('.pixelated-image')
   .resizable({
@@ -179,19 +178,8 @@ interact('.pixelated-image')
     
     inertia: false
   })
-  /*
-  .draggable({
-    listeners: { move: window.dragMoveListener },
-    inertia: false,
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'grid-supercontainer',
-        endOnly: true
-      })
-    ]
-  })
-*/
 
+/* 
 function dragMoveListener (event) {
   var target = event.target
   // keep the dragged position in the data-x/data-y attributes
@@ -205,5 +193,4 @@ function dragMoveListener (event) {
   target.setAttribute('data-x', x)
   target.setAttribute('data-y', y)
 }
-
-window.dragMoveListener = dragMoveListener;
+ */
