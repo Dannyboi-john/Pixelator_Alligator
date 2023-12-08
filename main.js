@@ -92,9 +92,8 @@ function createGrid(x, y) {
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
       // Creates a unit of 1 empty div
-      var unit = $("<div class='grid'></div>");
+      var unit = $("<div class='grid' id='cell'></div>");
       unit.appendTo('#grid-container');
-    //  $("#grid-container").append("<div class='grid'></div>");
     };
   };
 
@@ -179,18 +178,14 @@ interact('.pixelated-image')
     inertia: false
   })
 
-/* 
-function dragMoveListener (event) {
-  var target = event.target
-  // keep the dragged position in the data-x/data-y attributes
-  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+function changeColor() {
+  var gridCell = document.getElementById("cell");
+  gridCell.style.backgroundColor = "black";
+  console.log("click registered");
+};
 
-  // translate the element
-  target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-
-  // update the posiion attributes
-  target.setAttribute('data-x', x)
-  target.setAttribute('data-y', y)
-}
- */
+document.body.addEventListener("click", function(event) {
+  if (event.target.id == "cell") {
+    changeColor();
+  };
+});
