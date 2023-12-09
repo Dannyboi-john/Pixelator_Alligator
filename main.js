@@ -92,7 +92,7 @@ function createGrid(x, y) {
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
       // Creates a unit of 1 empty div
-      var unit = $("<div class='grid' id='cell'></div>");
+      var unit = $(`<div class='grid' id='cell${columns}${rows}'></div>`);
       unit.appendTo('#grid-container');
     };
   };
@@ -100,6 +100,10 @@ function createGrid(x, y) {
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
+
+  $(".grid").click(function() {
+    $(this).css("background-color", "black");
+  });
 };
 
 function clearGrid() {
@@ -178,7 +182,7 @@ interact('.pixelated-image')
     inertia: false
   })
 
-function changeColor() {
+function changeColor(item) {
   var gridCell = document.getElementById("cell");
   gridCell.style.backgroundColor = "black";
   console.log("click registered");
