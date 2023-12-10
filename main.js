@@ -101,8 +101,9 @@ function createGrid(x, y) {
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
 
+  // Changes the square to black on click.
   $(".grid").click(function() {
-    $(this).css("background-color", "black");
+      $(this).toggleClass("clicked-grid");
   });
 };
 
@@ -181,7 +182,7 @@ interact('.pixelated-image')
     
     inertia: false
   })
-
+/* 
 function changeColor(item) {
   var gridCell = document.getElementById("cell");
   gridCell.style.backgroundColor = "black";
@@ -192,4 +193,4 @@ document.body.addEventListener("click", function(event) {
   if (event.target.id == "cell") {
     changeColor();
   };
-});
+}); */

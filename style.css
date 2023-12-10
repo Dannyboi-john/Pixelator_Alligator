@@ -130,6 +130,14 @@ html, body {
     outline: 1px solid black;
     background-color: transparent;
   }
+  
+  .clicked-grid {
+    margin: 0;
+    border: none;
+    float: left;
+    outline: 1px solid black;
+    background-color: black;
+  }
 
   .canvas-class {
     padding-left: 0;
