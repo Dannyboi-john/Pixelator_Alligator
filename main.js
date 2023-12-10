@@ -182,15 +182,3 @@ interact('.pixelated-image')
     
     inertia: false
   })
-/* 
-function changeColor(item) {
-  var gridCell = document.getElementById("cell");
-  gridCell.style.backgroundColor = "black";
-  console.log("click registered");
-};
-
-document.body.addEventListener("click", function(event) {
-  if (event.target.id == "cell") {
-    changeColor();
-  };
-}); */
