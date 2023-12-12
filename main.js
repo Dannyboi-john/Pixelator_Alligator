@@ -20,6 +20,7 @@ window.dragLeaveHandler = dragLeaveHandler;
 window.dropHandler = dropHandler;
 window.getInput = getInput;
 window.dragMoveListener = dragMoveListener;
+window.pixelate = pixelate;
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -32,6 +33,8 @@ document.addEventListener("keypress", function(event) {
 function pixelate(pixel_size_x, pixel_size_y) {
 
   // Initiate canvas in drop zone
+  console.log(pixel_size_x);
+  console.log(pixel_size_y);
 
   const element = document.getElementById("dropped_img");
   let real_width = element.naturalWidth;
