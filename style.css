@@ -40,11 +40,11 @@ html, body {
   .input-dimensions {
 
     display: grid;
-    grid-template-rows: 30% 30%;
-    row-gap: 24%;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 2%;
     padding-right: 20%;
     padding-bottom: 7%;
-    margin-bottom: 13%;
+    margin-bottom: 0%;
     
   }
 
@@ -234,4 +234,16 @@ html, body {
     padding-bottom: 2%;
     margin-right: 7%;
 
+  }
+
+  .pixelate-button-class {
+    padding: 20%;
+    text-align: center;
+    margin: auto;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: black;
+    background-color: #0084EF;
+    border-radius: 5px;
+    cursor: pointer;
   }
