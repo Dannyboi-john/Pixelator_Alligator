@@ -129,22 +129,7 @@ function getGridSize() {
 
 
 const position = { x: 0, y: 0 }
-interact('.pixelated-image').draggable({
-  listeners: {
-    start (event) {
-      console.log(event.type, event.target)
-    },
-    move (event) {
-      position.x += event.dx
-      position.y += event.dy
 
-      event.target.style.transform =
-        `translate(${position.x}px, ${position.y}px)`
-    },
-  }
-})
-
-// Interact.js logic
 interact('.pixelated-image')
   .resizable({
     // resize from all edges and corners
@@ -168,20 +153,30 @@ interact('.pixelated-image')
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
+        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       }
     },
-    
     modifiers: [
       // keep the edges inside the parent
-      interact.modifiers.restrictEdges({
-        outer: 'grid-container'
+/*       interact.modifiers.restrictEdges({
+        outer: 'parent'
       }),
-
+ */
       // minimum size
       interact.modifiers.restrictSize({
         min: { width: 100, height: 50 }
       })
     ],
-    
-    inertia: false
+
+    inertia: true
+  })
+  .draggable({
+    listeners: { move: window.dragMoveListener },
+    inertia: true,
+/*     modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: 'parent',
+        endOnly: true
+      })
+    ] */
   })
