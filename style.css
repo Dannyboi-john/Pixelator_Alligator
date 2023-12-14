@@ -247,3 +247,22 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .snap-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .snap-button-class {
+    padding: 2%;
+    text-align: center;
+    margin: auto;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: black;
+    background-color: #0084EF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5%;
+  }
