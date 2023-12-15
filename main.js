@@ -13,6 +13,7 @@ function getInput() {
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
   clearGrid();
   createGrid(gridInputx, gridInputy);
+  createSnapButton();
 };
 
 window.dragOverHandler = dragOverHandler;
@@ -21,6 +22,7 @@ window.dropHandler = dropHandler;
 window.getInput = getInput;
 window.dragMoveListener = dragMoveListener;
 window.pixelate = pixelate;
+window.createSnapButton = createSnapButton;
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -180,3 +182,8 @@ interact('.pixelated-image')
       })
     ] */
   })
+
+function createSnapButton() {
+  let buttonInfo = '<button class="snap-button-class" id="snap-button-id">Snap to grid</button>';
+  document.getElementById("snap-button-container-id").innerHTML = buttonInfo;
+};
