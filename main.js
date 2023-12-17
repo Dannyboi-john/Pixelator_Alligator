@@ -23,6 +23,7 @@ window.getInput = getInput;
 window.dragMoveListener = dragMoveListener;
 window.pixelate = pixelate;
 window.createSnapButton = createSnapButton;
+// window.snapFunction = snapFunction;
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -44,6 +45,10 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
+
+  canvas.height = real_height;
+  canvas.width = real_width;
+  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const pixelatedImg = new Image();
   pixelatedImg.src = imgURL;
@@ -170,20 +175,50 @@ interact('.pixelated-image')
       })
     ],
 
-    inertia: true
+    inertia: false
   })
   .draggable({
     listeners: { move: window.dragMoveListener },
-    inertia: true,
-/*     modifiers: [
+    inertia: false,
+     modifiers: [
       interact.modifiers.restrictRect({
-        restriction: 'parent',
+        restriction: 'grid-container',
         endOnly: true
       })
-    ] */
+    ] 
   })
 
 function createSnapButton() {
-  let buttonInfo = '<button class="snap-button-class" id="snap-button-id">Snap to grid</button>';
+  let buttonInfo = '<button class="snap-button-class" id="snap-button-id" onclick="snapFunction">Snap to grid</button>';
   document.getElementById("snap-button-container-id").innerHTML = buttonInfo;
 };
+/*
+function snapFunction() {
+  var element = document.getElementById('grid-image')
+  var x = 0; var y = 0
+ 
+  interact(element)
+    .draggable({
+      modifiers: [
+        interact.modifiers.snap({
+          targets: [
+            interact.snappers.grid({ x: 30, y: 30 })
+          ],
+          range: Infinity,
+          relativePoints: [ { x: 0, y: 0 } ]
+        }),
+        interact.modifiers.restrict({
+          restriction: element.parentNode,
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+          endOnly: true
+        })
+      ],
+      inertia: true
+    })
+    .on('dragmove', function (event) {
+      x += event.dx
+      y += event.dy
+
+      event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+    })
+  } */
