@@ -13,7 +13,7 @@ function getInput() {
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
   clearGrid();
   createGrid(gridInputx, gridInputy);
-  createSnapButton();
+  createColorButton();
 };
 
 window.dragOverHandler = dragOverHandler;
@@ -22,8 +22,8 @@ window.dropHandler = dropHandler;
 window.getInput = getInput;
 window.dragMoveListener = dragMoveListener;
 window.pixelate = pixelate;
-window.createSnapButton = createSnapButton;
-// window.snapFunction = snapFunction;
+window.createColorButton = createColorButton;
+
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -194,7 +194,13 @@ interact('.pixelated-image')
     }
   })
 
-function createSnapButton() {
-  let buttonInfo = '<button class="snap-button-class" id="snap-button-id" onclick="snapFunction">Snap to grid</button>';
-  document.getElementById("snap-button-container-id").innerHTML = buttonInfo;
+function createColorButton() {
+  let buttonInfo = '<button class="color-button-class" id="color-button-id">Click to color cells</button>';
+  document.getElementById("color-button-container-id").innerHTML = buttonInfo;
+  console.log('button created');
+  $(document).ready(function() {
+      $(".color-button-id").click(function() {
+      $("pixelated-image").toggleClass("hide-active");
+    });
+  });
 };

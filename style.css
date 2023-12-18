@@ -249,13 +249,13 @@ html, body {
     cursor: pointer;
   }
 
-  .snap-button-container {
+  .color-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .snap-button-class {
+  .color-button-class {
     padding: 2%;
     text-align: center;
     margin: auto;
@@ -266,4 +266,15 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 5%;
+  }
+
+  .hide-active {
+    position: relative;
+    border: 1px solid red;
+    box-sizing: border-box;
+    opacity: 0.5;
+    touch-action: none;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
   }
