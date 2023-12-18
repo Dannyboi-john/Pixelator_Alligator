@@ -48,7 +48,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
 
   canvas.height = real_height;
   canvas.width = real_width;
-  
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const pixelatedImg = new Image();
   pixelatedImg.src = imgURL;
@@ -165,10 +165,10 @@ interact('.pixelated-image')
     },
     modifiers: [
       // keep the edges inside the parent
-/*       interact.modifiers.restrictEdges({
-        outer: 'parent'
+      interact.modifiers.restrictEdges({
+      outer: 'parent'
       }),
- */
+ 
       // minimum size
       interact.modifiers.restrictSize({
         min: { width: 100, height: 50 }
@@ -178,47 +178,23 @@ interact('.pixelated-image')
     inertia: false
   })
   .draggable({
-    listeners: { move: window.dragMoveListener },
-    inertia: false,
-     modifiers: [
+    // keep the element within the area of it's parent
+    modifiers: [
       interact.modifiers.restrictRect({
-        restriction: 'grid-container',
+        restriction: 'parent',
         endOnly: true
       })
-    ] 
+    ],
+    // enable autoScroll
+    autoScroll: true,
+
+    listeners: {
+      // call this function on every dragmove event
+      move: dragMoveListener
+    }
   })
 
 function createSnapButton() {
   let buttonInfo = '<button class="snap-button-class" id="snap-button-id" onclick="snapFunction">Snap to grid</button>';
   document.getElementById("snap-button-container-id").innerHTML = buttonInfo;
 };
-/*
-function snapFunction() {
-  var element = document.getElementById('grid-image')
-  var x = 0; var y = 0
- 
-  interact(element)
-    .draggable({
-      modifiers: [
-        interact.modifiers.snap({
-          targets: [
-            interact.snappers.grid({ x: 30, y: 30 })
-          ],
-          range: Infinity,
-          relativePoints: [ { x: 0, y: 0 } ]
-        }),
-        interact.modifiers.restrict({
-          restriction: element.parentNode,
-          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
-          endOnly: true
-        })
-      ],
-      inertia: true
-    })
-    .on('dragmove', function (event) {
-      x += event.dx
-      y += event.dy
-
-      event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-    })
-  } */
