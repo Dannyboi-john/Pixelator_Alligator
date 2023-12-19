@@ -199,8 +199,10 @@ function createColorButton() {
   document.getElementById("color-button-container-id").innerHTML = buttonInfo;
   console.log('button created');
   $(document).ready(function() {
-      $(".color-button-id").click(function() {
+    $(".color-button-class").click(function() {
+      console.log("button clicked");
       $("pixelated-image").toggleClass("hide-active");
+      console.log("Made it past toggle function");
     });
   });
 };
