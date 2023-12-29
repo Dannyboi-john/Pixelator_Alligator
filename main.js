@@ -202,7 +202,7 @@ function createColorButton() {
     $(".color-button-class").click(function() {
       console.log("button clicked");
       $("#grid-image").toggleClass("pixelated-image hide-active");
-      console.log("Made it past toggle function", $("#grid-image").css('z-index'));
+      console.log("Made it past toggle function:", $("#grid-image").css('z-index'));
     });
   });
 };
