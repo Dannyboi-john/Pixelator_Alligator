@@ -124,7 +124,7 @@ function clearGrid() {
   // If an image is submitted already, clear image. else, display normally.
   let imageRemover = document.getElementById("grid-image");
   if (imageRemover === null) {
-    console.log("working as indented");
+    console.log("");
   } else {
     imageRemover.parentNode.removeChild(imageRemover);
   }

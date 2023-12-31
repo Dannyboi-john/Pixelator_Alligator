@@ -14,7 +14,6 @@ html, body {
   }
   
   .input1 {
-
     display: grid;
     justify-content: center;
     padding-bottom: 2%;
@@ -278,4 +277,15 @@ html, body {
     width: 100%;
     object-fit: fill;
     z-index: -1;
+  }
+
+  .dark-mode-div {
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 125%;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: row;
   }
