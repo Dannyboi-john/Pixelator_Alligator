@@ -205,3 +205,8 @@ function createColorButton() {
     });
   });
 };
+
+var darkModeIcon = document.getElementById("dark");
+darkModeIcon.onclick = function() {
+  document.body.classList.toggle("dark-theme");
+}
