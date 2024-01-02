@@ -160,9 +160,16 @@ input {
 }
 
 .canvas-class {
+  max-width: 50%;
+  max-height: 50%;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-notice {
