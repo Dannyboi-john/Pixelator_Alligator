@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
 
-html, body {
+body {
     background-color: var(--background-color);
     min-height: 100%;
     margin: 0%;
