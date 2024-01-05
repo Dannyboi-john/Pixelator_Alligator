@@ -2,6 +2,7 @@ import { dragOverHandler as dragOverHandler } from "./drag-over-handler.js";
 import { dragLeaveHandler } from "./drag-leave-handler.js";
 import { dropHandler } from "./drop-handler.js";
 import { dragMoveListener } from "./drag-move-listener.js";
+import { createColorButton } from "./create-color-button.js";
 
 //Gets width and height and stores them in variables
 function getInput() {
@@ -196,7 +197,7 @@ interact('.pixelated-image')
     }
   })
 
-function createColorButton() {
+/* function createColorButton() {
   let buttonInfo = '<button class="color-button-class" id="color-button-id">Click to color cells</button>';
   document.getElementById("color-button-container-id").innerHTML = buttonInfo;
   $(document).ready(function() {
@@ -205,7 +206,7 @@ function createColorButton() {
     });
   });
 };
-
+ */
 var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
   document.body.classList.toggle("dark-theme");
