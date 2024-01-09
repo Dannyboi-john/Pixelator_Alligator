@@ -32,6 +32,26 @@ browse.onclick = () => {
   input.click();
 };
 
+input.addEventListener('change', function() {
+  let file = this.files[0]
+  let fileType = file.type;
+    let validExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
+
+    // If dropped image is valid format, accept
+    if(validExtensions.includes(fileType)) {
+    const reader = new FileReader();
+      reader.onload = () => {
+        window.imgURL = reader.result;
+        const submitted_img = document.createElement('img');
+        submitted_img.src = imgURL;
+        submitted_img.setAttribute("id", "dropped_img");
+        document.getElementById("drop-zone").innerHTML = ""
+        document.getElementById("drop-zone").appendChild(submitted_img);
+
+    };
+    reader.readAsDataURL(file);
+  };
+});
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {

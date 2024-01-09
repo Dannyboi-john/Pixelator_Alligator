@@ -316,4 +316,5 @@ input {
 
 .browse {
   color: blue;
+  cursor: pointer;
 }
