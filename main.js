@@ -25,6 +25,13 @@ window.dragMoveListener = dragMoveListener;
 window.pixelate = pixelate;
 window.createColorButton = createColorButton;
 
+let browse = document.querySelector(".browse");
+let input = document.getElementById("browse-images")
+
+browse.onclick = () => {
+  input.click();
+};
+
 
 //'Enter' Event listener
 document.addEventListener("keypress", function(event) {
@@ -197,16 +204,6 @@ interact('.pixelated-image')
     }
   })
 
-/* function createColorButton() {
-  let buttonInfo = '<button class="color-button-class" id="color-button-id">Click to color cells</button>';
-  document.getElementById("color-button-container-id").innerHTML = buttonInfo;
-  $(document).ready(function() {
-    $(".color-button-class").click(function() {
-      $("#grid-image").toggleClass("pixelated-image hide-active");
-    });
-  });
-};
- */
 var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
   document.body.classList.toggle("dark-theme");

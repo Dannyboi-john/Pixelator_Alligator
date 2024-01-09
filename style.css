@@ -313,3 +313,7 @@ input {
   display: flex;
   flex-direction: row;
 }
+
+.browse {
+  color: blue;
+}
