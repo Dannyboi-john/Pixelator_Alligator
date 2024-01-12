@@ -13,7 +13,7 @@ function getInput() {
   pixelate(inputx, inputy);
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
   clearGrid();
-  createGrid(gridInputx, gridInputy);
+  createGrid(gridInputx, gridInputy, inputx, inputy);
   createColorButton();
 };
 
@@ -109,7 +109,7 @@ function pixelate(pixel_size_x, pixel_size_y) {
   };
 };
 
-function createGrid(x, y) {
+function createGrid(x, y, px, py) {
 
   const gridSelector = document.getElementById("grid-supercontainer");
 
@@ -121,11 +121,24 @@ function createGrid(x, y) {
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
 
+  console.log(`grid width = ${x}px`);
+  console.log(`grid height = ${y}px`);
+  console.log(`pixelated width = ${px}px`);
+  console.log(`pixelated height = ${py}px`);
+  var heightRatio = px/x;
+  var widthRatio = py/y;
+  console.log(`width ratio = ${widthRatio}`);
+  console.log(`height ratio = ${heightRatio}`);
+  
+
+
   gridSelector.appendChild(imageCreator);
 
   // Gets height and width of image.
   imageCreator.onload = function () {
     getGridSize();
+    document.getElementById("grid-image").width = widthRatio;
+    document.getElementById("grid-image").height = heightRatio;
   }
 
   // Initiates the grid based on passed-in parameters
@@ -145,6 +158,10 @@ function createGrid(x, y) {
   $(".grid").click(function() {
       $(this).toggleClass("clicked-grid");
   });
+
+/*   let container = document.getElementById("grid-container");
+  console.log(`width = ${container.offsetWidth}px`);
+  console.log(`height = ${container.offsetHeight}px`); */
 };
 
 function clearGrid() {
