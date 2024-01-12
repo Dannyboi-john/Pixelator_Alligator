@@ -121,22 +121,15 @@ function createGrid(x, y, px, py) {
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
 
-  console.log(`grid width = ${x}px`);
-  console.log(`grid height = ${y}px`);
-  console.log(`pixelated width = ${px}px`);
-  console.log(`pixelated height = ${py}px`);
   var heightRatio = px/x;
   var widthRatio = py/y;
-  console.log(`width ratio = ${widthRatio}`);
-  console.log(`height ratio = ${heightRatio}`);
-  
-
 
   gridSelector.appendChild(imageCreator);
 
   // Gets height and width of image.
   imageCreator.onload = function () {
     getGridSize();
+    // Scales the image to size of grid
     document.getElementById("grid-image").width = widthRatio;
     document.getElementById("grid-image").height = heightRatio;
   }
