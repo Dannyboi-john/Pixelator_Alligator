@@ -152,9 +152,6 @@ function createGrid(x, y, px, py) {
       $(this).toggleClass("clicked-grid");
   });
 
-/*   let container = document.getElementById("grid-container");
-  console.log(`width = ${container.offsetWidth}px`);
-  console.log(`height = ${container.offsetHeight}px`); */
 };
 
 function clearGrid() {
