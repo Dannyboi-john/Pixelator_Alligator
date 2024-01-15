@@ -110,29 +110,8 @@ function pixelate(pixel_size_x, pixel_size_y) {
 };
 
 function createGrid(x, y, px, py) {
-
+ 
   const gridSelector = document.getElementById("grid-supercontainer");
-
-  // Places pixelated image in grid-supercontainer
-  var imageCreator = document.createElement("img");
-  imageCreator.setAttribute("id", "grid-image");
-  imageCreator.setAttribute("class", "pixelated-image")
-  let canvas = document.getElementById("myCanvas");
-  const pixelatedURL = canvas.toDataURL();
-  imageCreator.src = pixelatedURL;
-
-  var heightRatio = px/x;
-  var widthRatio = py/y;
-
-  gridSelector.appendChild(imageCreator);
-
-  // Gets height and width of image.
-  imageCreator.onload = function () {
-    getGridSize();
-    // Scales the image to size of grid
-    document.getElementById("grid-image").width = widthRatio;
-    document.getElementById("grid-image").height = heightRatio;
-  }
 
   // Initiates the grid based on passed-in parameters
   for (var columns = 0; columns < y; columns++) {
@@ -152,7 +131,22 @@ function createGrid(x, y, px, py) {
       $(this).toggleClass("clicked-grid");
   });
 
+  // Places pixelated image in grid-supercontainer
+  var heightRatio = px/x;
+  var widthRatio = py/y;
+  const gridSize = document.getElementById("grid-container");
+  var imageCreator = document.createElement("img");
+  imageCreator.setAttribute("id", "grid-image");
+  imageCreator.setAttribute("class", "pixelated-image");
+  imageCreator.setAttribute("width", (widthRatio * gridSize.offsetWidth));
+  imageCreator.setAttribute("height", (heightRatio * gridSize.offsetHeight));
+  let canvas = document.getElementById("myCanvas");
+  const pixelatedURL = canvas.toDataURL();
+  imageCreator.src = pixelatedURL;
+
+  gridSelector.appendChild(imageCreator);
 };
+
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
