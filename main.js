@@ -145,14 +145,6 @@ function createGrid(x, y, px, py) {
   imageCreator.src = pixelatedURL;
 
   gridSelector.appendChild(imageCreator);
-
-  console.log("GWidth", gridSize.offsetWidth);
-  console.log("GHeight", gridSize.offsetHeight);
-  console.log("IWidth: ", document.getElementById("grid-image").width);
-  console.log("IHeight: ", document.getElementById("grid-image").height);
-  console.log("height ratio: ", heightRatio);
-  console.log("width ratio: ", widthRatio);
-  console.log(`x = ${x}, y  = ${y}, px= ${px}, py = ${py}`);
 };
 
 
