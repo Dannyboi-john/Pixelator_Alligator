@@ -132,8 +132,6 @@ function createGrid(x, y, px, py) {
   });
 
   // Places pixelated image in grid-supercontainer
-/*   var heightRatio = px/x;
-  var widthRatio = py/y; */
   var heightRatio = py/y;
   var widthRatio = px/x;
   const gridSize = document.getElementById("grid-container");
