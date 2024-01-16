@@ -261,14 +261,6 @@ interact('.pixelated-image')
  
 
 
-
-/* document.getElementById("myBtn").addEventListener('click', function() {
-  $(document).ready(function() {
-
-  })
-})
- */
-
 var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
   document.body.classList.toggle("dark-theme");
