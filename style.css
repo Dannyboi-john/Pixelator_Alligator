@@ -222,7 +222,7 @@ input {
 
 .pixelated-image {
   position: absolute;
-  border: 1px solid red;
+  border: none;
   box-sizing: border-box;
   opacity: 0.5;
   touch-action: none;

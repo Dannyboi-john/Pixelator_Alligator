@@ -15,6 +15,8 @@ function getInput() {
   clearGrid();
   createGrid(gridInputx, gridInputy, inputx, inputy);
   createColorButton();
+  updateGrid();
+  reinitializeSnapping();
 };
 
 window.dragOverHandler = dragOverHandler;
@@ -24,6 +26,8 @@ window.getInput = getInput;
 window.dragMoveListener = dragMoveListener;
 window.pixelate = pixelate;
 window.createColorButton = createColorButton;
+window.updateGrid = updateGrid;
+window.reinitializeSnapping = reinitializeSnapping;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -168,12 +172,13 @@ function getGridSize() {
 
 
 
-
+ 
 const position = { x: 0, y: 0 }
 
 var x = 0
 var y = 0
 
+/*
 interact('.pixelated-image')
   .resizable({
     // resize from all edges and corners
@@ -214,6 +219,9 @@ interact('.pixelated-image')
 
     inertia: false
   })
+ */
+
+
 /*    .draggable({
     // keep the element within the area of it's parent
     modifiers: [
@@ -234,12 +242,12 @@ interact('.pixelated-image')
 
 
 
-
+/* 
    .draggable({
     modifiers: [
       interact.modifiers.snap({
         targets: [
-          interact.snappers.grid({ x: 30, y: 30 })
+          interact.snappers.grid({ gridConfig })
         ],
         range: Infinity,
         relativePoints: [ { x: 0, y: 0 } ]
@@ -250,7 +258,7 @@ interact('.pixelated-image')
         endOnly: true
       })
     ],
-    inertia: true
+    inertia: false
   })
   .on('dragmove', function (event) {
     x += event.dx
@@ -258,8 +266,51 @@ interact('.pixelated-image')
 
     event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
   })
+  
+*/
+
+
+var gridConfig = {
+  x: 30,
+  y: 30,
+};
+
  
 
+function updateGrid() {
+  gridConfig.x = document.getElementById("cell00").offsetWidth;
+  gridConfig.y = document.getElementById("cell00").offsetHeight;
+  
+}
+
+function reinitializeSnapping() {
+  console.log(gridConfig);
+  interact(".pixelated-image")
+    .draggable({
+      modifiers: [
+        interact.modifiers.snap({
+          targets: [
+            interact.snappers.grid({ gridConfig })
+          ],
+          range: Infinity,
+          relativePoints: [ { x: 0, y: 0 } ]
+        }),
+        interact.modifiers.restrict({
+          restriction: 'parent',
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+          endOnly: false
+        })
+      ],
+      inertia: false
+    })
+    .on('dragmove', function (event) {
+      x += event.dx
+      y += event.dy
+  
+      event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+    })
+
+}
 
 var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
