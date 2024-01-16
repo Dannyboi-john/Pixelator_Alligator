@@ -290,7 +290,7 @@ function reinitializeSnapping() {
       modifiers: [
         interact.modifiers.snap({
           targets: [
-            interact.snappers.grid({ gridConfig })
+            interact.snappers.grid( gridConfig )
           ],
           range: Infinity,
           relativePoints: [ { x: 0, y: 0 } ]
