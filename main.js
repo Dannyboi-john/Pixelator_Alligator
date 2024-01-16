@@ -166,7 +166,13 @@ function getGridSize() {
 
 
 
+
+
+
 const position = { x: 0, y: 0 }
+
+var x = 0
+var y = 0
 
 interact('.pixelated-image')
   .resizable({
@@ -208,7 +214,7 @@ interact('.pixelated-image')
 
     inertia: false
   })
-  .draggable({
+/*    .draggable({
     // keep the element within the area of it's parent
     modifiers: [
       interact.modifiers.restrictRect({
@@ -224,6 +230,44 @@ interact('.pixelated-image')
       move: dragMoveListener
     }
   })
+  */
+
+
+
+
+   .draggable({
+    modifiers: [
+      interact.modifiers.snap({
+        targets: [
+          interact.snappers.grid({ x: 30, y: 30 })
+        ],
+        range: Infinity,
+        relativePoints: [ { x: 0, y: 0 } ]
+      }),
+      interact.modifiers.restrict({
+        restriction: 'parent',
+        elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+        endOnly: true
+      })
+    ],
+    inertia: true
+  })
+  .on('dragmove', function (event) {
+    x += event.dx
+    y += event.dy
+
+    event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+  })
+ 
+
+
+
+/* document.getElementById("myBtn").addEventListener('click', function() {
+  $(document).ready(function() {
+
+  })
+})
+ */
 
 var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
