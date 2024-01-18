@@ -107,9 +107,6 @@ function pixelate(pixel_size_x, pixel_size_y) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalCompositeOperation = 'source-over';
     ctx.imageSmoothingEnabled = true;
-
-    // Grab dataURL of pixelated image
-
   };
 };
 
@@ -140,6 +137,8 @@ function createGrid(x, y, px, py) {
   var widthRatio = px/x;
   const gridSize = document.getElementById("grid-container");
   var imageCreator = document.createElement("img");
+
+  // Sets attributes of pixelated image
   imageCreator.setAttribute("id", "grid-image");
   imageCreator.setAttribute("class", "pixelated-image");
   imageCreator.setAttribute("width", (widthRatio * gridSize.offsetWidth));
@@ -148,6 +147,8 @@ function createGrid(x, y, px, py) {
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
 
+
+  // Appends image to the grid
   gridSelector.appendChild(imageCreator);
 };
 
@@ -161,11 +162,6 @@ function clearGrid() {
   } else {
     imageRemover.parentNode.removeChild(imageRemover);
   }
-};
-
-function getGridSize() {
-  const imgHeight = document.getElementById("grid-image").naturalHeight;
-  const imgWidth = document.getElementById("grid-image").naturalWidth;
 };
  
 const position = { x: 0, y: 0 }
