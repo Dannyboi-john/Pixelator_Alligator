@@ -67,9 +67,9 @@ document.addEventListener("keypress", function(event) {
 
 function pixelate(pixel_size_x, pixel_size_y) {
 
-  if (document.getElementById("dropped_img") == null) {
+   if (document.getElementById("dropped_img") == null) {
     alert("Please submit an image to pixelate!");
-  } else {
+  } else { 
 
     // Initiate canvas in drop zone
     const element = document.getElementById("dropped_img");
@@ -293,7 +293,8 @@ function reinitializeSnapping() {
             interact.snappers.grid( gridConfig )
           ],
           range: Infinity,
-          relativePoints: [ { x: 0, y: 0 } ]
+          relativePoints: [ { x: 0, y: 0 } ],
+          offset: 'parent'
         }),
         interact.modifiers.restrict({
           restriction: 'parent',
