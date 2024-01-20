@@ -33,6 +33,7 @@ window.pixelate = pixelate;
 window.createColorButton = createColorButton;
 window.updateGrid = updateGrid;
 window.reinitializeSnapping = reinitializeSnapping;
+window.gridStandalone = gridStandalone;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -157,6 +158,27 @@ function createGrid(x, y, px, py) {
   gridSelector.appendChild(imageCreator);
 };
 
+function gridStandalone() {
+  const gridSelector = document.getElementById("grid-supercontainer");
+
+  // Initiates the grid based on passed-in parameters
+  for (var columns = 0; columns < y; columns++) {
+    for (var rows = 0; rows < x; rows++) {
+      // Creates a unit of 1 empty div
+      var unit = $(`<div class='grid' id='cell${columns}${rows}'></div>`);
+      unit.appendTo('#grid-container');
+    };
+  };
+
+  // Gets the size of the empty div and populates it according to size
+  $(".grid").width(gridSelector.offsetWidth / x);
+  $(".grid").height(gridSelector.offsetHeight / y);
+
+  // Changes the square to black on click.
+  $(".grid").click(function() {
+      $(this).toggleClass("clicked-grid");
+  });
+}
 
 function clearGrid() {
   document.getElementById("grid-container").innerHTML = "";
