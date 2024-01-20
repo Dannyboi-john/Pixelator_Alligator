@@ -13,6 +13,9 @@ function getInput() {
 
    if (inputx > gridInputx || inputy > gridInputy) {
     alert("Oops! Looks like your image is bigger than the grid!");
+   } 
+  else if (document.getElementById("dropped-img") == null) {
+    gridStandalone(gridInputx, gridInputy); 
   } else { 
   pixelate(inputx, inputy);
   document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
@@ -158,7 +161,7 @@ function createGrid(x, y, px, py) {
   gridSelector.appendChild(imageCreator);
 };
 
-function gridStandalone() {
+function gridStandalone(x, y) {
   const gridSelector = document.getElementById("grid-supercontainer");
 
   // Initiates the grid based on passed-in parameters
