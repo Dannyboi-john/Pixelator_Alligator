@@ -159,6 +159,10 @@ function createGrid(x, y, px, py) {
 
   // Appends image to the grid
   gridSelector.appendChild(imageCreator);
+
+  // Hides canvas after image is appended
+  var canvasHider = document.getElementById("myCanvas");
+  canvasHider.style.display = "none";
 };
 
 function gridStandalone(x, y) {
