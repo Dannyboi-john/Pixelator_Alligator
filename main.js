@@ -14,7 +14,7 @@ function getInput() {
    if (inputx > gridInputx || inputy > gridInputy) {
     alert("Oops! Looks like your image is bigger than the grid!");
    } 
-  else if (document.getElementById("dropped-img") == null) {
+  else if ((inputx || inputy) == "null") {
     gridStandalone(gridInputx, gridInputy); 
   } else { 
   pixelate(inputx, inputy);
