@@ -11,19 +11,21 @@ function getInput() {
   var gridInputx = document.getElementById("grid-constuctor-x").value;
   var gridInputy = document.getElementById("grid-constructor-y").value;
 
-   if (inputx > gridInputx || inputy > gridInputy) {
+  if (inputx > gridInputx || inputy > gridInputy) {
     alert("Oops! Looks like your image is bigger than the grid!");
-   } 
-  else if ((inputx || inputy) == "null") {
-    gridStandalone(gridInputx, gridInputy); 
-  } else { 
-  pixelate(inputx, inputy);
-  document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
-  clearGrid();
-  createGrid(gridInputx, gridInputy, inputx, inputy);
-  createColorButton();
-  updateGrid();
-  reinitializeSnapping();
+  } else if (inputx === "") {
+    gridStandalone(gridInputx, gridInputy);
+    document.getElementById("img-notice").innerHTML = "Your grid has been greated below!";
+  } else {
+    console.log(inputx);
+    console.log("else case reached");
+    pixelate(inputx, inputy);
+    document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
+    clearGrid();
+    createGrid(gridInputx, gridInputy, inputx, inputy);
+    createColorButton();
+    updateGrid();
+    reinitializeSnapping();
   }
 };
 
@@ -244,7 +246,7 @@ function reinitializeSnapping() {
   console.log(gridConfig);
 }
 
-var darkModeIcon = document.getElementById("dark");
+/* var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
   document.body.classList.toggle("dark-theme");
-}
+} */
