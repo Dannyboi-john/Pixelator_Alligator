@@ -213,7 +213,6 @@ var gridConfig = {
 function updateGrid() {
   gridConfig["x"] = document.getElementById("cell00").getBoundingClientRect().width;
   gridConfig["y"] = document.getElementById("cell00").getBoundingClientRect().height;
-  
 }
 
 function reinitializeSnapping() {
