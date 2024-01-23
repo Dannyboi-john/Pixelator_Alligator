@@ -7,13 +7,14 @@ body {
   }
 
 :root {
-  --background-color: #8dceec;
-  --title-background-color: rgb(44, 185, 183);
-  --button-color: #0084EF;
+  --background-color: #38182F;
+  --title-background-color: #2F394D;
+  --button-color: #2F394D;
   --photo-reciever-color: peachpuff;
-  --photo-reciever-hover-color: rgb(247, 180, 122);
+  --photo-reciever-hover-color: #EEE1B3;
   --grid-border: black;
   --dark-mode-text: black;
+  --input-background-color: #EEE1B3;
 }
 
 .dark-theme {
