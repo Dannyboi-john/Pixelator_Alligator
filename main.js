@@ -209,12 +209,13 @@ var gridConfig = {
 };
 
 function updateGrid() {
-  gridConfig.x = document.getElementById("cell00").getBoundingClientRect().width;
-  gridConfig.y = document.getElementById("cell00").getBoundingClientRect().height;
+  gridConfig["x"] = document.getElementById("cell00").getBoundingClientRect().width;
+  gridConfig["y"] = document.getElementById("cell00").getBoundingClientRect().height;
   
 }
 
 function reinitializeSnapping() {
+  interact(".pixelated-image").unset()
   interact(".pixelated-image")
     .draggable({
       modifiers: [
@@ -241,7 +242,6 @@ function reinitializeSnapping() {
       event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
     })
   console.log(gridConfig);
-  console.log(cell00)
 }
 
 var darkModeIcon = document.getElementById("dark");
