@@ -15,7 +15,7 @@ function getInput() {
     alert("Oops! Looks like your image is bigger than the grid!");
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
-    document.getElementById("img-notice").innerHTML = "Your grid has been greated below!";
+    document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else {
     console.log(inputx);
     console.log("else case reached");
