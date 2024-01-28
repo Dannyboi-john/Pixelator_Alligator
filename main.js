@@ -139,9 +139,21 @@ function createGrid(x, y, px, py) {
   $(".grid").height(gridSelector.offsetHeight / y);
 
   // Changes the square to black on click.
-  $(".grid").click(function() {
+  var isDown = false;
+  $(".grid").mousedown(function() {
+    isDown = true;
+  })
+  $(".grid").mouseup(function() {
+    isDown = false;
+  })
+  $(".grid").mouseover(function() {
+    if(isDown) {
       $(this).toggleClass("clicked-grid");
+    }
   });
+  $(".grid").click(function() {
+    $(this).toggleClass("clicked-grid");
+  })
 
   // Places pixelated image in grid-supercontainer
   var heightRatio = py/y;
