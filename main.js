@@ -15,6 +15,7 @@ function getInput() {
     alert("Oops! Looks like your image is bigger than the grid!");
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
+    createClearButton();
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else {
     console.log(inputx);
@@ -272,13 +273,13 @@ function reinitializeSnapping() {
 }
 
 function createClearButton()  {
-  let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Click to clear colored cells</button>';
+   let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Click to clear colored cells</button>';
     document.getElementById("clear-cells-container-id").innerHTML = ClearButtonInfo;
     $(document).ready(function() {
-      $(".color-button-class").click(function() {
-        $("#cell").toggleClass("clicked-grid grid");
+      $(".clear-button-class").click(function() {
+        $(".clicked-grid").removeClass("clicked-grid");
       });
-    });
+    }); 
   };
 
 /* var darkModeIcon = document.getElementById("dark");
