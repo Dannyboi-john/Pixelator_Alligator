@@ -24,6 +24,7 @@ function getInput() {
     clearGrid();
     createGrid(gridInputx, gridInputy, inputx, inputy);
     createColorButton();
+    createClearButton();
     updateGrid();
     reinitializeSnapping();
   }
@@ -39,6 +40,7 @@ window.createColorButton = createColorButton;
 window.updateGrid = updateGrid;
 window.reinitializeSnapping = reinitializeSnapping;
 window.gridStandalone = gridStandalone;
+window.createClearButton = createClearButton;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -129,7 +131,7 @@ function createGrid(x, y, px, py) {
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
       // Creates a unit of 1 empty div
-      var unit = $(`<div class='grid' id='cell${columns}${rows}'></div>`);
+      var unit = $(`<div class='grid' id='cell'></div>`);
       unit.appendTo('#grid-container');
     };
   };
@@ -186,7 +188,7 @@ function gridStandalone(x, y) {
   for (var columns = 0; columns < y; columns++) {
     for (var rows = 0; rows < x; rows++) {
       // Creates a unit of 1 empty div
-      var unit = $(`<div class='grid' id='cell${columns}${rows}'></div>`);
+      var unit = $(`<div class='grid' id='cell'></div>`);
       unit.appendTo('#grid-container');
     };
   };
@@ -229,15 +231,15 @@ const position = { x: 0, y: 0 }
 var x = 0
 var y = 0
 
-var gridConfig = {
-  x: 30,
-  y: 30,
-};
-
 function updateGrid() {
-  gridConfig["x"] = document.getElementById("cell00").getBoundingClientRect().width;
-  gridConfig["y"] = document.getElementById("cell00").getBoundingClientRect().height;
+  gridConfig["x"] = document.getElementById("cell").getBoundingClientRect().width;
+  gridConfig["y"] = document.getElementById("cell").getBoundingClientRect().height;
 }
+
+var gridConfig = {
+    x: 30,
+    y: 30,
+};
 
 function reinitializeSnapping() {
   interact(".pixelated-image").unset()
@@ -268,6 +270,16 @@ function reinitializeSnapping() {
     })
   console.log(gridConfig);
 }
+
+function createClearButton()  {
+  let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Click to clear colored cells</button>';
+    document.getElementById("clear-cells-container-id").innerHTML = ClearButtonInfo;
+    $(document).ready(function() {
+      $(".color-button-class").click(function() {
+        $("#cell").toggleClass("clicked-grid grid");
+      });
+    });
+  };
 
 /* var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {

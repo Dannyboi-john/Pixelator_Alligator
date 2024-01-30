@@ -273,6 +273,14 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 30%;
+}
+
+.clear-cells-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30%;
 }
 
 .color-button-class {
@@ -286,6 +294,25 @@ input {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5%;
+}
+
+.clear-button-class {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.grid-buttons {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
 }
 
 .hide-active {
