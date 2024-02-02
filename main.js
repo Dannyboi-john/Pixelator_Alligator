@@ -26,6 +26,7 @@ function getInput() {
     createGrid(gridInputx, gridInputy, inputx, inputy);
     createColorButton();
     createClearButton();
+    createHideButton();
     updateGrid();
     reinitializeSnapping();
   }
@@ -42,6 +43,7 @@ window.updateGrid = updateGrid;
 window.reinitializeSnapping = reinitializeSnapping;
 window.gridStandalone = gridStandalone;
 window.createClearButton = createClearButton;
+window.createHideButton = createHideButton;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -281,6 +283,17 @@ function createClearButton()  {
       });
     }); 
   };
+
+function createHideButton() {
+  let hideButtonInfo = `<button class="hide-button-class" id="hide-button-id">Click to hide image</button>`;
+  document.getElementById("hide-image-container-id").innerHTML = hideButtonInfo;
+  $(document).ready(function() {
+    $(".hide-button-class").click(function() {
+      $("#grid-image").toggleClass("pixelated-image hide-fully");
+    })
+  })
+
+}
 
 /* var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {

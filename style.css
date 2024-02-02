@@ -223,7 +223,7 @@ input {
   width: 900px;
   padding: 0;
   border: none;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 .pixelated-image {
@@ -316,7 +316,7 @@ input {
 
 .grid-buttons {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
 }
 
@@ -335,7 +335,20 @@ input {
   font-family: 'Poppins';
   font-size: 125%;
   cursor: pointer;
-  color: var(--dark-mode-text)
+  color: var(--dark-mode-text);
+}
+
+.hide-button-class {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
 }
 
 .title-container {
@@ -346,4 +359,14 @@ input {
 .browse {
   color: blue;
   cursor: pointer;
+}
+
+.hide-fully {
+  position: relative;
+  border: 1px solid red;
+  box-sizing: border-box;
+  opacity: 0;
+  touch-action: none;
+  object-fit: fill;
+  z-index: -1;
 }
