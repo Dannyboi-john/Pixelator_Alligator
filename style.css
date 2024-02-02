@@ -83,7 +83,7 @@ input {
   font-size: 300%;
   background-color: var(--title-background-color);
   border-radius: 10px;
-  box-shadow: 10px 10px 7px rgb(80, 80, 80);
+  box-shadow: 10px 10px 7px rgba(0, 122, 236, 0.13);
 }
 
 .button-container {
