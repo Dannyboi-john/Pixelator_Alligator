@@ -27,6 +27,7 @@ function getInput() {
     createColorButton();
     createClearButton();
     createHideButton();
+    createColorPicker();
     updateGrid();
     reinitializeSnapping();
   }
@@ -44,6 +45,7 @@ window.reinitializeSnapping = reinitializeSnapping;
 window.gridStandalone = gridStandalone;
 window.createClearButton = createClearButton;
 window.createHideButton = createHideButton;
+window.createColorPicker = createColorPicker;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -285,15 +287,33 @@ function createClearButton()  {
   };
 
 function createHideButton() {
-  let hideButtonInfo = `<button class="hide-button-class" id="hide-button-id">Click to hide image</button>`;
+  let hideButtonInfo = `<button class="hide-button-class" id="hide-button-id">Hide image</button>`;
   document.getElementById("hide-image-container-id").innerHTML = hideButtonInfo;
   $(document).ready(function() {
     $(".hide-button-class").click(function() {
       $("#grid-image").toggleClass("pixelated-image hide-fully");
     })
   })
+};
 
+function createColorPicker() {
+  let colorPickerInfo = `<button class="color-picker-button-class" id="color-picker-button-id">Pick a color</button>`;
+  document.getElementById("color-picker-container-id").innerHTML = colorPickerInfo;
+  $(document).ready(function() {
+    const modal = document.querySelector(".modal");
+    const openModal = document.querySelector("#color-picker-button-id");
+    const closeModal = document.querySelector("#close-button-id");
+
+    openModal.addEventListener("click", () => {
+      modal.showModal();
+    })
+    closeModal.addEventListener("click", () => {
+      modal.close();
+    })
+  })
 }
+
+
 
 /* var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {

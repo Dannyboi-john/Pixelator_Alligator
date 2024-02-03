@@ -316,7 +316,7 @@ input {
 
 .grid-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
 }
 
@@ -369,4 +369,24 @@ input {
   touch-action: none;
   object-fit: fill;
   z-index: -1;
+}
+
+.color-picker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30%;
+}
+
+.color-picker-button-class {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
 }
