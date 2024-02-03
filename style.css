@@ -390,3 +390,27 @@ input {
   cursor: pointer;
   margin-top: 5%;
 }
+
+.color-picker {
+  width: 20%;
+  padding: 0;
+}
+
+.modal {
+  height: 50%;
+  width: 50%;
+  background: linear-gradient(#9198e5, #5e2e51);;
+}
+
+.close-button {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
+}
