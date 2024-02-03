@@ -276,16 +276,19 @@ function reinitializeSnapping() {
   console.log(gridConfig);
 }
 
+// Creates a button that clears all shaded cells
 function createClearButton()  {
    let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Click to clear colored cells</button>';
     document.getElementById("clear-cells-container-id").innerHTML = ClearButtonInfo;
     $(document).ready(function() {
       $(".clear-button-class").click(function() {
-        $(".clicked-grid").removeClass("clicked-grid");
+        //$(".clicked-grid").removeClass("clicked-grid");
+        $(".grid").css("background-color", "transparent");
       });
     }); 
   };
 
+  // Function that creates a hide button for image.
 function createHideButton() {
   let hideButtonInfo = `<button class="hide-button-class" id="hide-button-id">Hide image</button>`;
   document.getElementById("hide-image-container-id").innerHTML = hideButtonInfo;
@@ -296,6 +299,7 @@ function createHideButton() {
   })
 };
 
+// Function that selects color to shade cells in a modal (dialog) window.
 function createColorPicker() {
   let colorPickerInfo = `<button class="color-picker-button-class" id="color-picker-button-id">Pick a color</button>`;
   document.getElementById("color-picker-container-id").innerHTML = colorPickerInfo;
@@ -303,6 +307,7 @@ function createColorPicker() {
     const modal = document.querySelector(".modal");
     const openModal = document.querySelector("#color-picker-button-id");
     const closeModal = document.querySelector("#close-button-id");
+    let colorInput = document.querySelector("#color-picker-id");
 
     openModal.addEventListener("click", () => {
       modal.showModal();
@@ -310,6 +315,17 @@ function createColorPicker() {
     closeModal.addEventListener("click", () => {
       modal.close();
     })
+
+    colorInput.addEventListener("input", () => {
+      let color = colorInput.value;
+      $(".grid").click(function() {
+        $(this).css("background-color", color);
+      })
+    })
+
+    // Function that changes clicked grid background color to selected color.
+
+
   })
 }
 
