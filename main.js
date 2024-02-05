@@ -16,6 +16,9 @@ function getInput() {
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
     createClearButton();
+    createColorPicker();
+    createColorButton();
+    createHideButton();
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else {
     console.log(inputx);
@@ -322,10 +325,6 @@ function createColorPicker() {
         $(this).css("background-color", color);
       })
     })
-
-    // Function that changes clicked grid background color to selected color.
-
-
   })
 }
 
