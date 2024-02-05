@@ -21,8 +21,6 @@ function getInput() {
     createHideButton();
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else {
-    console.log(inputx);
-    console.log("else case reached");
     pixelate(inputx, inputy);
     document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
     clearGrid();
@@ -276,7 +274,6 @@ function reinitializeSnapping() {
   
       event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
     })
-  console.log(gridConfig);
 }
 
 // Creates a button that clears all shaded cells
