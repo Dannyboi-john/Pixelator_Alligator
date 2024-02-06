@@ -278,7 +278,7 @@ function reinitializeSnapping() {
 
 // Creates a button that clears all shaded cells
 function createClearButton()  {
-   let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Click to clear colored cells</button>';
+   let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Clear colored cells</button>';
     document.getElementById("clear-cells-container-id").innerHTML = ClearButtonInfo;
     $(document).ready(function() {
       $(".clear-button-class").click(function() {
