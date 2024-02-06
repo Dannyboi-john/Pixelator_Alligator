@@ -278,14 +278,12 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 30%;
 }
 
 .clear-cells-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 30%;
 }
 
 .color-button-class {
@@ -318,6 +316,8 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .hide-active {
@@ -375,7 +375,6 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 30%;
 }
 
 .color-picker-button-class {
@@ -413,4 +412,10 @@ input {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5%;
+}
+
+.hide-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
