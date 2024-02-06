@@ -321,6 +321,18 @@ function createColorPicker() {
       $(".grid").click(function() {
         $(this).css("background-color", color);
       })
+      var isDown = false;
+      $('.grid').mousedown(function() {
+        isDown = true;
+      })
+      $('.grid').mouseup(function() {
+        isDown = false;
+      })
+      $('.grid').mouseover(function() {
+        if (isDown) {
+          $(this).css("background-color", color);
+        }
+      })
     })
   })
 }
