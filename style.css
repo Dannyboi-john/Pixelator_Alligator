@@ -446,6 +446,19 @@ input {
   margin-top: 5%;
 }
 
+.eraser {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
 .hide-image-container {
   display: flex;
   justify-content: center;

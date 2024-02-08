@@ -316,6 +316,28 @@ function createColorPicker() {
       modal.close();
     })
 
+    // Erases drawn squares (Makes their background transparent).
+    let eraserInput = document.querySelector(".eraser");
+    eraserInput.addEventListener("click", () => {
+      $(".grid").click(function() {
+        $(this).css("background-color", "transparent");
+      })
+      var isDown = false;
+      $('.grid').mousedown(function() {
+        isDown = true;
+      })
+      $('.grid').mouseup(function() {
+        isDown = false;
+      })
+      $('.grid').mouseover(function() {
+        if (isDown) {
+          $(this).css("background-color", "transparent");
+        }
+      })
+      modal.close();
+    })
+
+    // Event listener for color picker and associated logic.
     colorInput.addEventListener("input", () => {
       let color = colorInput.value;
       $(".grid").click(function() {
@@ -333,11 +355,10 @@ function createColorPicker() {
           $(this).css("background-color", color);
         }
       })
+      $("#color-picker-button-id").css("color", color);
     })
   })
 }
-
-
 
 /* var darkModeIcon = document.getElementById("dark");
 darkModeIcon.onclick = function() {
