@@ -196,6 +196,7 @@ input {
     margin-bottom: 15%;
     width: 100%;
     display: flex;
+
   }
 
   .title-container {
@@ -235,8 +236,10 @@ input {
   border: 2px solid black;
   font-size: 0;
   margin: auto;
-  height: 900px;
-  width: 900px;
+/*   height: 900px;
+  width: 900px; */
+  height: 75vh;
+  width: 75vw;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -248,8 +251,10 @@ input {
   border: 2px solid black;
   font-size: 0;
   margin: auto;
-  height: 900px;
-  width: 900px;
+/*   height: 900px;
+  width: 900px; */
+  height: 75vh;
+  width: 75vw;
   padding: 0;
   border: none;
   /* background-color: transparent; */
