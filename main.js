@@ -47,6 +47,8 @@ window.gridStandalone = gridStandalone;
 window.createClearButton = createClearButton;
 window.createHideButton = createHideButton;
 window.createColorPicker = createColorPicker;
+window.recalculateGrid = recalculateGrid;
+window.clearGrid = clearGrid;
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -130,6 +132,8 @@ function pixelate(pixel_size_x, pixel_size_y) {
 };
 
 function createGrid(x, y, px, py) {
+
+  window.addEventListener("resize", recalculateGrid);
  
   const gridSelector = document.getElementById("grid-supercontainer");
 
@@ -188,6 +192,7 @@ function createGrid(x, y, px, py) {
 };
 
 function gridStandalone(x, y) {
+  window.addEventListener("resize", recalculateGrid);
   const gridSelector = document.getElementById("grid-supercontainer");
 
   // Initiates the grid based on passed-in parameters
@@ -222,16 +227,26 @@ function gridStandalone(x, y) {
 }
 
 function clearGrid() {
-  document.getElementById("grid-container").innerHTML = "";
-  // If an image is submitted already, clear image. else, display normally.
+  var gridStuff = document.getElementById("grid-container");
   let imageRemover = document.getElementById("grid-image");
-  if (imageRemover === null) {
+  if (gridStuff.innerHTML === null) {
+    console.log("The grid is already empty, buddy!");
+  } else if (imageRemover && gridStuff.innerHTML != null) {
+    imageRemover.parentNode.removeChild(imageRemover);
+    gridStuff.innerHTML = "";
+  }
+  
+/*   document.getElementById("grid-container").innerHTML = "";
+  document.getElementById("grid-supercontainer").innerHTML = ""; */
+  // If an image is submitted already, clear image. else, display normally.
+  
+/*   if (imageRemover === null) {
     console.log("");
   } else {
     imageRemover.parentNode.removeChild(imageRemover);
-  }
-};
- 
+  } */
+}
+
 const position = { x: 0, y: 0 }
 
 var x = 0
@@ -358,6 +373,23 @@ function createColorPicker() {
       $("#color-picker-button-id").css("color", color);
     })
   })
+}
+
+function recalculateGrid() {
+  setTimeout(function() {
+    document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
+
+    var inputx = document.getElementById("userInputx").value;
+    var inputy = document.getElementById("userInputy").value;
+    var gridInputx = document.getElementById("grid-constuctor-x").value;
+    var gridInputy = document.getElementById("grid-constructor-y").value;
+
+    clearGrid();
+    pixelate(inputx, inputy);
+    createGrid(gridInputx, gridInputy, inputx, inputy);
+    updateGrid();
+    reinitializeSnapping();
+  }, 500)
 }
 
 /* var darkModeIcon = document.getElementById("dark");
