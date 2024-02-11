@@ -160,11 +160,11 @@ function createGrid(x, y, px, py) {
   })
   $(".grid").mouseover(function() {
     if(isDown) {
-      $(this).toggleClass("clicked-grid");
+      $(this).css("background-color", "black");
     }
   });
   $(".grid").click(function() {
-    $(this).toggleClass("clicked-grid");
+    $(this).css("background-color", "black");
   })
 
   // Places pixelated image in grid-supercontainer
@@ -218,11 +218,11 @@ function gridStandalone(x, y) {
   })
   $(".grid").mouseover(function() {
     if(isDown) {
-      $(this).toggleClass("clicked-grid");
+      $(this).css("background-color", "black");
     }
   });
   $(".grid").click(function() {
-    $(this).toggleClass("clicked-grid");
+    $(this).css("background-color", "black");
   })
 }
 
@@ -310,6 +310,11 @@ function createHideButton() {
   $(document).ready(function() {
     $(".hide-button-class").click(function() {
       $("#grid-image").toggleClass("pixelated-image hide-fully");
+/*       $("#hide-image-container-id").toggle(function() {
+        $(this).text("Show image");
+      }, function() {
+        $(this).text("Hide image");
+      }) */
     })
   })
 };
