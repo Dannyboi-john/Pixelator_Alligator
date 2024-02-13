@@ -130,7 +130,11 @@ function pixelate(pixel_size_x, pixel_size_y) {
       //Shows the canvas again if grid has been created first
       var canvasHider = document.getElementById("myCanvas");
       canvasHider.style.display = "block";
-      
+
+      //Hides the Grid buttons as well.
+      var buttonHider = document.getElementById("grid-buttons-id");
+      buttonHider.style.display = "none";
+
   } else if (document.getElementById("dropped_img") == null) {
     alert("Please submit an image to pixelate!");
   } else { 
