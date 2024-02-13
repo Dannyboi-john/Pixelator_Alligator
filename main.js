@@ -236,6 +236,9 @@ function createGrid(x, y, px, py) {
   // Hides canvas after image is appended
   var canvasHider = document.getElementById("myCanvas");
   canvasHider.style.display = "none";
+
+  var showButtons = document.getElementById("grid-buttons-id")
+  showButtons.style.display = "grid";
 };
 
 function gridStandalone(x, y) {
@@ -250,6 +253,7 @@ function gridStandalone(x, y) {
       unit.appendTo('#grid-container');
     };
   };
+
 
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
