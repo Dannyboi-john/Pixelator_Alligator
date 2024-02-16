@@ -196,7 +196,7 @@ input {
     margin-bottom: 15%;
     width: 100%;
     display: flex;
-
+    font-size: 200%;
   }
 
   .title-container {
@@ -220,6 +220,7 @@ input {
     place-items: center;
     margin-top: 5%;
     padding: 0;
+    margin-right: 10%;
   }
 
   .get-grid-size {
