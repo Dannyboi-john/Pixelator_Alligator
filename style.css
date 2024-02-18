@@ -470,3 +470,8 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+.welcome-modal {
+  font-family: 'Poppins';
+  max-width: 60%;
+}
