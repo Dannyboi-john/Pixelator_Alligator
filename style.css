@@ -475,3 +475,15 @@ input {
   font-family: 'Poppins';
   max-width: 60%;
 }
+
+.tips-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: inherit;
+  font-family: 'Poppins';
+  font-weight: bold;
+  background-color: var(--button-color);
+  border-radius: 10px;
+}

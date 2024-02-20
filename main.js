@@ -4,7 +4,7 @@ import { dropHandler } from "./drop-handler.js";
 import { dragMoveListener } from "./drag-move-listener.js";
 import { createColorButton } from "./create-color-button.js";
 
-
+const welcomeModal = document.querySelector("#welcome-modal");
 
 //Gets width and height and stores them in variables
 function getInput() {
