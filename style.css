@@ -188,49 +188,6 @@ input {
 }
 
 
-@media only screen and (max-width:800px) {
-  .input-grid {
-    grid-template-columns: 1fr;
-  }
-  .title {
-    margin-bottom: 15%;
-    width: 100%;
-    display: flex;
-    font-size: 200%;
-  }
-
-  .title-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .grid-buttons {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    padding-left: 20%;
-    padding-right: 20%; 
-  }
-
-  .input-grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    place-items: center;
-    margin-top: 5%;
-    padding: 0;
-    margin-right: 10%;
-  }
-
-  .get-grid-size {
-    display: grid;
-    grid-template-rows: 30% 30% 30%;
-    row-gap: 1%;
-    padding-right: 20%;
-    padding-bottom: 10%;
-  }
-}
 
 #grid-container {
   position: absolute;
@@ -474,6 +431,8 @@ input {
 .welcome-modal {
   font-family: 'Poppins';
   max-width: 60%;
+  background: linear-gradient(#9198e5, #5e2e51);
+  border-radius: 10px;
 }
 
 .tips-div {
@@ -486,4 +445,76 @@ input {
   font-weight: bold;
   background-color: var(--button-color);
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.close-welcome-button {
+  padding: 2%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: black;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+@media only screen and (max-width:800px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    margin-bottom: 10%;
+    width: 100%;
+    display: flex;
+    font-size: 200%;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tips-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: inherit;
+    font-family: 'Poppins';
+    font-weight: bold;
+    background-color: var(--button-color);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+
+  .grid-buttons {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    padding-left: 20%;
+    padding-right: 20%; 
+  }
+
+  .input-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+    margin-top: 5%;
+    padding: 0;
+    margin-right: 10%;
+  }
+
+  .get-grid-size {
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    row-gap: 1%;
+    padding-right: 20%;
+    padding-bottom: 10%;
+  }
 }

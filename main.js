@@ -4,7 +4,23 @@ import { dropHandler } from "./drop-handler.js";
 import { dragMoveListener } from "./drag-move-listener.js";
 import { createColorButton } from "./create-color-button.js";
 
-const welcomeModal = document.querySelector("#welcome-modal");
+const welcomeModal = document.querySelector(".welcome-modal");
+const closeWelcomeModal = document.querySelector(".close-welcome-button");
+$(document).ready(function() {
+  welcomeModal.showModal();
+})
+closeWelcomeModal.addEventListener('click', () => {
+  welcomeModal.close();
+})
+
+const tipsButton = document.querySelector(".tips-div");
+tipsButton.addEventListener('click', () =>{
+  welcomeModal.showModal();
+})
+
+
+
+
 
 //Gets width and height and stores them in variables
 function getInput() {
