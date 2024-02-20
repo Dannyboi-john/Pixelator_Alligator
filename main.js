@@ -4,6 +4,8 @@ import { dropHandler } from "./drop-handler.js";
 import { dragMoveListener } from "./drag-move-listener.js";
 import { createColorButton } from "./create-color-button.js";
 
+
+
 //Gets width and height and stores them in variables
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
@@ -11,8 +13,10 @@ function getInput() {
   var gridInputx = document.getElementById("grid-constuctor-x").value;
   var gridInputy = document.getElementById("grid-constructor-y").value;
 
-  if (inputx > gridInputx || inputy > gridInputy) {
+  if (parseInt(inputx) > parseInt(gridInputx) || parseInt(inputy) > parseInt(gridInputy)) {
     alert("Oops! Looks like your image is bigger than the grid!");
+  } else if (parseInt(gridInputx) > 150 || parseInt(gridInputy) > 150) {
+    alert("Woah! That's a lot of grid cells! Try and keep it under 150 ;)")
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
     createClearButton();
