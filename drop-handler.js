@@ -1,6 +1,5 @@
 //Drop handler
 export function dropHandler(ev) {
-  console.log("File(s) dropped!");
   ev.preventDefault();
   const dragText = document.querySelector('.photo-reciever');
   dragText.textContent = 'Drag and drop images from your file manager into this Drop Zone!';
@@ -11,7 +10,6 @@ export function dropHandler(ev) {
       //If dropped items aren't files, reject them
       if (item.kind === 'file') {
         const file = item.getAsFile();
-        console.log(`… file[${i}].name = ${file.name}`);
   
         // Type-checking for valid image files (JPG, JPEG, PNG)
         let fileType = file.type;

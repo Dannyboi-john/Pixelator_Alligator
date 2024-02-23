@@ -295,25 +295,16 @@ function gridStandalone(x, y) {
   })
 }
 
+// Clears the 
 function clearGrid() {
   var gridStuff = document.getElementById("grid-container");
   let imageRemover = document.getElementById("grid-image");
   if (gridStuff.innerHTML === null) {
-    console.log("The grid is already empty, buddy!");
+    console.log();
   } else if (imageRemover && gridStuff.innerHTML != null) {
     imageRemover.parentNode.removeChild(imageRemover);
     gridStuff.innerHTML = "";
   }
-  
-/*   document.getElementById("grid-container").innerHTML = "";
-  document.getElementById("grid-supercontainer").innerHTML = ""; */
-  // If an image is submitted already, clear image. else, display normally.
-  
-/*   if (imageRemover === null) {
-    console.log("");
-  } else {
-    imageRemover.parentNode.removeChild(imageRemover);
-  } */
 }
 
 const position = { x: 0, y: 0 }
