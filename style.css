@@ -93,7 +93,8 @@ input {
 }
 
 .enter-button {
-  padding: 40%;
+  display: flex;
+  padding: 20%;
   text-align: center;
   margin: auto;
   font-family: 'Poppins';
@@ -255,7 +256,8 @@ input {
 }
 
 .pixelate-button-class {
-  padding: 20%;
+  padding: 10%;
+  display: flex;
   text-align: center;
   margin: auto;
   font-family: 'Poppins';
