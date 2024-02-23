@@ -28,7 +28,7 @@ function getInput() {
   if (parseInt(inputx) > parseInt(gridInputx) || parseInt(inputy) > parseInt(gridInputy)) {
     alert("Oops! Looks like your image is bigger than the grid!");
   } else if (parseInt(gridInputx) > 150 || parseInt(gridInputy) > 150) {
-    alert("Woah! That's a lot of grid cells! Try and keep it under 150 ;)")
+    alert("Woah! That's a lot of grid cells! Try and keep it under 150 ;)");
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
     createClearButton();
@@ -36,6 +36,8 @@ function getInput() {
     createColorButton();
     createHideButton();
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
+  } else if (gridInputx === "" || gridInputy === "") {
+    alert("Please enter the dimensions of the grid :)");
   } else {
     pixelate(inputx, inputy);
     document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
