@@ -3,6 +3,8 @@ import { dragLeaveHandler } from "./drag-leave-handler.js";
 import { dropHandler } from "./drop-handler.js";
 import { dragMoveListener } from "./drag-move-listener.js";
 import { createColorButton } from "./create-color-button.js";
+import { createClearButton } from "./create-clear-button.js";
+import { createHideButton } from "./create-hide-button.js";
 
 const welcomeModal = document.querySelector(".welcome-modal");
 const closeWelcomeModal = document.querySelector(".close-welcome-button");
@@ -351,33 +353,6 @@ function reinitializeSnapping() {
     })
 }
 
-// Creates a button that clears all shaded cells
-function createClearButton()  {
-   let ClearButtonInfo = '<button class="clear-button-class" id="clear-button-id">Clear colored cells</button>';
-    document.getElementById("clear-cells-container-id").innerHTML = ClearButtonInfo;
-    $(document).ready(function() {
-      $(".clear-button-class").click(function() {
-        //$(".clicked-grid").removeClass("clicked-grid");
-        $(".grid").css("background-color", "transparent");
-      });
-    }); 
-  };
-
-  // Function that creates a hide button for image.
-function createHideButton() {
-  let hideButtonInfo = `<button class="hide-button-class" id="hide-button-id">Hide image</button>`;
-  document.getElementById("hide-image-container-id").innerHTML = hideButtonInfo;
-  $(document).ready(function() {
-    $(".hide-button-class").click(function() {
-      $("#grid-image").toggleClass("pixelated-image hide-fully");
-/*       $("#hide-image-container-id").toggle(function() {
-        $(this).text("Show image");
-      }, function() {
-        $(this).text("Hide image");
-      }) */
-    })
-  })
-};
 
 // Function that selects color to shade cells in a modal (dialog) window.
 function createColorPicker() {
