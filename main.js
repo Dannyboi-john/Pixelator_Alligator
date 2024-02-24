@@ -160,7 +160,6 @@ function createGrid(x, y, px, py) {
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
 
-
   // Appends image to the grid
   gridSelector.appendChild(imageCreator);
 
@@ -184,7 +183,6 @@ function gridStandalone(x, y) {
       unit.appendTo('#grid-container');
     };
   };
-
 
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
@@ -213,6 +211,7 @@ const position = { x: 0, y: 0 }
 var x = 0
 var y = 0
 
+// Get function that adjusts the size of the grid cells accordingly.
 function updateGrid() {
   gridConfig["x"] = document.getElementById("cell").getBoundingClientRect().width;
   gridConfig["y"] = document.getElementById("cell").getBoundingClientRect().height;
@@ -223,6 +222,7 @@ var gridConfig = {
     y: 30,
 };
 
+// Recalculates the snapping distance of the draggable image on resize.
 function reinitializeSnapping() {
   interact(".pixelated-image").unset()
   interact(".pixelated-image")
@@ -252,6 +252,7 @@ function reinitializeSnapping() {
     })
 }
 
+// Recalculates the size and shape of the grid on window resize.
 function recalculateGrid() {
   setTimeout(function() {
     document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
