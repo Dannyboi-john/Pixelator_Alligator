@@ -5,6 +5,9 @@ import { dragMoveListener } from "./drag-move-listener.js";
 import { createColorButton } from "./create-color-button.js";
 import { createClearButton } from "./create-clear-button.js";
 import { createHideButton } from "./create-hide-button.js";
+import { clearGrid } from "./clear-grid.js";
+import { createColorPicker } from "./create-color-picker.js";
+import { pixelate } from "./pixelate.js";
 
 const welcomeModal = document.querySelector(".welcome-modal");
 const closeWelcomeModal = document.querySelector(".close-welcome-button");
@@ -106,98 +109,6 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-function pixelate(pixel_size_x, pixel_size_y) {
-
-  if (document.getElementById("cell") != null) {
-    clearGrid();
-      // Initiate canvas in drop zone
-      const element = document.getElementById("dropped_img");
-      let real_width = element.naturalWidth;
-      let real_height = element.naturalHeight;
-  
-      const canvas = document.getElementById('myCanvas');
-      const ctx = canvas.getContext('2d');
-  
-      canvas.height = real_height;
-      canvas.width = real_width;
-  
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const pixelatedImg = new Image();
-      pixelatedImg.src = imgURL;
-  
-      ctx.scale((pixel_size_x / real_width), (pixel_size_y / real_height));
-      ctx.drawImage(pixelatedImg, 0, 0);
-  
-      // Make next drawing erase what's currently on the canvas
-      ctx.globalCompositeOperation = 'copy';
-  
-      // Nearest Neighbor
-      ctx.imageSmoothingEnabled = false;
-                          
-      // Scale up
-      ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
-  
-      var hRatio = canvas.width / pixelatedImg.width;
-      var vRatio = canvas.height / pixelatedImg.height;
-      var ratio = Math.min(hRatio, vRatio);
-      ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, (canvas.width*ratio), (canvas.height*ratio));
-      
-      // reset all to defaults
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.imageSmoothingEnabled = true;
-
-      //Shows the canvas again if grid has been created first
-      var canvasHider = document.getElementById("myCanvas");
-      canvasHider.style.display = "block";
-
-      //Hides the Grid buttons as well.
-      var buttonHider = document.getElementById("grid-buttons-id");
-      buttonHider.style.display = "none";
-
-  } else if (document.getElementById("dropped_img") == null) {
-    alert("Please submit an image to pixelate!");
-  } else { 
-
-    // Initiate canvas in drop zone
-    const element = document.getElementById("dropped_img");
-    let real_width = element.naturalWidth;
-    let real_height = element.naturalHeight;
-
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.height = real_height;
-    canvas.width = real_width;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const pixelatedImg = new Image();
-    pixelatedImg.src = imgURL;
-
-    ctx.scale((pixel_size_x / real_width), (pixel_size_y / real_height));
-    ctx.drawImage(pixelatedImg, 0, 0);
-
-    // Make next drawing erase what's currently on the canvas
-    ctx.globalCompositeOperation = 'copy';
-
-    // Nearest Neighbor
-    ctx.imageSmoothingEnabled = false;
-                        
-    // Scale up
-    ctx.setTransform((real_width / pixel_size_x), 0, 0, (real_height / pixel_size_y), 0, 0);
-
-    var hRatio = canvas.width / pixelatedImg.width;
-    var vRatio = canvas.height / pixelatedImg.height;
-    var ratio = Math.min(hRatio, vRatio);
-    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, (canvas.width*ratio), (canvas.height*ratio));
-    
-    // reset all to defaults
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.imageSmoothingEnabled = true;
-  };
-};
-
 function createGrid(x, y, px, py) {
 
   window.addEventListener("resize", recalculateGrid);
@@ -297,18 +208,6 @@ function gridStandalone(x, y) {
   })
 }
 
-// Clears the 
-function clearGrid() {
-  var gridStuff = document.getElementById("grid-container");
-  let imageRemover = document.getElementById("grid-image");
-  if (gridStuff.innerHTML === null) {
-    console.log();
-  } else if (imageRemover && gridStuff.innerHTML != null) {
-    imageRemover.parentNode.removeChild(imageRemover);
-    gridStuff.innerHTML = "";
-  }
-}
-
 const position = { x: 0, y: 0 }
 
 var x = 0
@@ -353,68 +252,6 @@ function reinitializeSnapping() {
     })
 }
 
-
-// Function that selects color to shade cells in a modal (dialog) window.
-function createColorPicker() {
-  let colorPickerInfo = `<button class="color-picker-button-class" id="color-picker-button-id">Pick a color</button>`;
-  document.getElementById("color-picker-container-id").innerHTML = colorPickerInfo;
-  $(document).ready(function() {
-    const modal = document.querySelector(".modal");
-    const openModal = document.querySelector("#color-picker-button-id");
-    const closeModal = document.querySelector("#close-button-id");
-    let colorInput = document.querySelector("#color-picker-id");
-
-    openModal.addEventListener("click", () => {
-      modal.showModal();
-    })
-    closeModal.addEventListener("click", () => {
-      modal.close();
-    })
-
-    // Erases drawn squares (Makes their background transparent).
-    let eraserInput = document.querySelector(".eraser");
-    eraserInput.addEventListener("click", () => {
-      $(".grid").click(function() {
-        $(this).css("background-color", "transparent");
-      })
-      var isDown = false;
-      $('.grid').mousedown(function() {
-        isDown = true;
-      })
-      $('.grid').mouseup(function() {
-        isDown = false;
-      })
-      $('.grid').mouseover(function() {
-        if (isDown) {
-          $(this).css("background-color", "transparent");
-        }
-      })
-      modal.close();
-    })
-
-    // Event listener for color picker and associated logic.
-    colorInput.addEventListener("input", () => {
-      let color = colorInput.value;
-      $(".grid").click(function() {
-        $(this).css("background-color", color);
-      })
-      var isDown = false;
-      $('.grid').mousedown(function() {
-        isDown = true;
-      })
-      $('.grid').mouseup(function() {
-        isDown = false;
-      })
-      $('.grid').mouseover(function() {
-        if (isDown) {
-          $(this).css("background-color", color);
-        }
-      })
-      $("#color-picker-button-id").css("color", color);
-    })
-  })
-}
-
 function recalculateGrid() {
   setTimeout(function() {
     document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
@@ -431,10 +268,3 @@ function recalculateGrid() {
     reinitializeSnapping();
   }, 500)
 }
-
-
-
-/* var darkModeIcon = document.getElementById("dark");
-darkModeIcon.onclick = function() {
-  document.body.classList.toggle("dark-theme");
-} */

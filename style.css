@@ -64,7 +64,6 @@ input {
 }
 
 .input-dimensions {
-
   display: grid;
   grid-template-rows: 30% 30% 30%;
   row-gap: 2%;
