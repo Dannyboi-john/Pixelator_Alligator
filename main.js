@@ -110,7 +110,6 @@ document.addEventListener("keypress", function(event) {
 });
 
 function createGrid(x, y, px, py) {
-
   window.addEventListener("resize", recalculateGrid);
  
   const gridSelector = document.getElementById("grid-supercontainer");
@@ -125,8 +124,8 @@ function createGrid(x, y, px, py) {
   };
 
   // Gets the size of the empty div and populates it according to size
-  $(".grid").width(gridSelector.offsetWidth / x);
-  $(".grid").height(gridSelector.offsetHeight / y);
+  $(".grid").width(gridSelector.getBoundingClientRect().width / x);
+  $(".grid").height(gridSelector.getBoundingClientRect().height / y);
 
   // Changes the square to black on click.
   var isDown = false;

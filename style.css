@@ -150,7 +150,7 @@ input {
 }
 
 .grid {
-  margin: 0;
+  margin: 0;  
   border: none;
   float: left;
   outline: 1px solid var(--grid-border);
@@ -196,8 +196,8 @@ input {
   margin: auto;
 /*   height: 900px;
   width: 900px; */
-  height: 70vh;
-  width: 70vw;
+  height: inherit;
+  width: inherit;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -211,8 +211,8 @@ input {
   margin: auto;
 /*   height: 900px;
   width: 900px; */
-  height: 70vh;
-  width: 70vw;
+  height: 60vh;
+  width: 60vw;
   padding: 0;
   border: none;
   /* background-color: transparent; */
