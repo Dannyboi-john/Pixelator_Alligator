@@ -74,6 +74,7 @@ input {
 }
 
 .title {
+  display: flex;
   margin: auto;
   width: 50%;
   text-align: center;
@@ -348,6 +349,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .browse {
