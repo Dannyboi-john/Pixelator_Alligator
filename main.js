@@ -81,9 +81,9 @@ browse.onclick = () => {
 };
 
 input.addEventListener('change', function() {
-  let file = this.files[0]
+  let file = this.files[0];
   let fileType = file.type;
-    let validExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
+  let validExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
 
     // If dropped image is valid format, accept
     if(validExtensions.includes(fileType)) {
@@ -96,6 +96,10 @@ input.addEventListener('change', function() {
         document.getElementById("drop-zone").innerHTML = ""
         document.getElementById("drop-zone").appendChild(submitted_img);
 
+        let imageChanger = document.getElementById("dropped_img");
+        imageChanger.addEventListener('click', function() {
+          input.click();
+        })
     };
     reader.readAsDataURL(file);
   };
