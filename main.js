@@ -52,15 +52,12 @@ function getInput() {
     createColorPicker();
     createColorButton();
     createHideButton();
-    console.log("Third else case");
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else if (gridInputx === "" || gridInputy === "") {
     alert("Please enter the dimensions of the grid :)");
   } else if (gridInputx && gridInputy === null) {
     pixelate(inputx, inputy);
-    console.log("Pixelate alone case reached!");
   } else {
-    console.log("Last else case reached");
     pixelate(inputx, inputy);
     document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
     clearGrid();
