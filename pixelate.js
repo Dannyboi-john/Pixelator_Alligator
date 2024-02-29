@@ -97,5 +97,8 @@ export function pixelate(pixel_size_x, pixel_size_y) {
     canvasShow.style.display = "block";
 
     document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
+
+    var buttonHider = document.getElementById("grid-buttons-id");
+    buttonHider.style.display = "none";
   };
 };
