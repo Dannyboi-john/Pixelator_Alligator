@@ -25,7 +25,7 @@ export function dropHandler(ev) {
             submitted_img.setAttribute("id", "dropped_img");
             document.getElementById("drop-zone").innerHTML = ""
             document.getElementById("drop-zone").appendChild(submitted_img);
-  
+
         };
         reader.readAsDataURL(file);
       } else {

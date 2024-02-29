@@ -31,7 +31,7 @@
         <input type="text" placeholder="Enter the height of the pixelated image" id="userInputy">
       </div>
       <div class="pixelate-button-container">
-        <button class="pixelate-button-class" id="pixelate-button" onclick="pixelate(document.getElementById('userInputx').value , document.getElementById('userInputy').value )">Pixelate Image Alone</button>
+        <button class="pixelate-button-class" id="pixelate-button">Pixelate Image Alone</button>
       </div>
     </div>
 
@@ -43,7 +43,7 @@
         <input type="text" id="grid-constructor-y" placeholder="Enter the height of the project (rows)">
       </div>
       <div class="button-container">
-        <button class="enter-button" id="myBtn" onclick="getInput()">Pixelate on Grid</button>
+        <button class="enter-button" id="myBtn">Pixelate on Grid</button>
       </div>
     </div>
 
@@ -55,7 +55,6 @@
       ondragleave="dragLeaveHandler(event)">
       Drag and drop images here! or <span class="browse">browse</span>
       <input type="file" id="browse-images" hidden/>
-      <div id="img-changer-container"></div>
     </div>
   </div>
 

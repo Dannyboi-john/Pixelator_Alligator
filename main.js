@@ -23,6 +23,18 @@ tipsButton.addEventListener('click', () =>{
   welcomeModal.showModal();
 })
 
+const pixelateButton = document.getElementById("pixelate-button");
+const gridButton = document.getElementById("myBtn");
+
+pixelateButton.addEventListener('click', function() {
+  var inputx = document.getElementById("userInputx").value;
+  var inputy = document.getElementById("userInputy").value;
+  pixelate(inputx, inputy);
+});
+gridButton.addEventListener('click', function() {
+  getInput();
+});
+
 //Gets width and height and stores them in variables
 function getInput() {
   var inputx = document.getElementById("userInputx").value;
@@ -40,10 +52,15 @@ function getInput() {
     createColorPicker();
     createColorButton();
     createHideButton();
+    console.log("Third else case");
     document.getElementById("img-notice").innerHTML = "Your grid has been created below!";
   } else if (gridInputx === "" || gridInputy === "") {
     alert("Please enter the dimensions of the grid :)");
+  } else if (gridInputx && gridInputy === null) {
+    pixelate(inputx, inputy);
+    console.log("Pixelate alone case reached!");
   } else {
+    console.log("Last else case reached");
     pixelate(inputx, inputy);
     document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
     clearGrid();
@@ -216,8 +233,12 @@ var y = 0
 
 // Get function that adjusts the size of the grid cells accordingly.
 function updateGrid() {
-  gridConfig["x"] = document.getElementById("cell").getBoundingClientRect().width;
-  gridConfig["y"] = document.getElementById("cell").getBoundingClientRect().height;
+  if (document.getElementById("cell") === null) {
+    return
+  } else {
+    gridConfig["x"] = document.getElementById("cell").getBoundingClientRect().width;
+    gridConfig["y"] = document.getElementById("cell").getBoundingClientRect().height;
+  }
 }
 
 var gridConfig = {
@@ -257,18 +278,22 @@ function reinitializeSnapping() {
 
 // Recalculates the size and shape of the grid on window resize.
 function recalculateGrid() {
-  setTimeout(function() {
-    document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
+  if (document.getElementById("cell") === null) {
+    return
+  } else {
+    setTimeout(function() {
+      document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
 
-    var inputx = document.getElementById("userInputx").value;
-    var inputy = document.getElementById("userInputy").value;
-    var gridInputx = document.getElementById("grid-constuctor-x").value;
-    var gridInputy = document.getElementById("grid-constructor-y").value;
+      var inputx = document.getElementById("userInputx").value;
+      var inputy = document.getElementById("userInputy").value;
+      var gridInputx = document.getElementById("grid-constuctor-x").value;
+      var gridInputy = document.getElementById("grid-constructor-y").value;
 
-    clearGrid();
-    pixelate(inputx, inputy);
-    createGrid(gridInputx, gridInputy, inputx, inputy);
-    updateGrid();
-    reinitializeSnapping();
-  }, 500)
+      clearGrid();
+      pixelate(inputx, inputy);
+      createGrid(gridInputx, gridInputy, inputx, inputy);
+      updateGrid();
+      reinitializeSnapping();
+    }, 500)
+  }
 }

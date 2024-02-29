@@ -48,9 +48,13 @@ export function pixelate(pixel_size_x, pixel_size_y) {
       var buttonHider = document.getElementById("grid-buttons-id");
       buttonHider.style.display = "none";
 
+      document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
+
   } else if (document.getElementById("dropped_img") == null) {
     alert("Please submit an image to pixelate!");
   } else { 
+
+    clearGrid();
 
     // Initiate canvas in drop zone
     const element = document.getElementById("dropped_img");
@@ -88,5 +92,10 @@ export function pixelate(pixel_size_x, pixel_size_y) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalCompositeOperation = 'source-over';
     ctx.imageSmoothingEnabled = true;
+
+    var canvasShow = document.getElementById("myCanvas");
+    canvasShow.style.display = "block";
+
+    document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
   };
 };
