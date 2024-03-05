@@ -90,6 +90,7 @@ input {
   display: grid;
   justify-content: center;
   padding-right: 5%;
+  white-space: nowrap;
 }
 
 .enter-button {
