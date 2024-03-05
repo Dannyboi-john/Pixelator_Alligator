@@ -104,6 +104,7 @@ input {
   background-color: var(--button-color);
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .photo-reciever {
