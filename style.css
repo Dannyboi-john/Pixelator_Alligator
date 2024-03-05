@@ -227,6 +227,9 @@ input {
   opacity: 0.5;
   touch-action: none;
   object-fit: fill;
+  max-width: 100%;
+  width: 100%;
+
 }
 
 .get-grid-size {
