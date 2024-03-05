@@ -465,7 +465,7 @@ input {
   margin-top: 5%;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:900px) {
   .input-grid {
     grid-template-columns: 1fr;
   }
@@ -521,6 +521,7 @@ input {
     row-gap: 1%;
     padding-right: 20%;
     padding-bottom: 10%;
+    margin-top: 2%;
   }
   
   .pixelate-button-class {
