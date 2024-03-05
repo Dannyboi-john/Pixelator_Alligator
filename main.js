@@ -147,20 +147,50 @@ function createGrid(x, y, px, py) {
 
   // Changes the square to black on click.
   var isDown = false;
+
   $(".grid").mousedown(function() {
     isDown = true;
   })
+
   $(".grid").mouseup(function() {
     isDown = false;
   })
+
   $(".grid").mouseover(function() {
     if(isDown) {
       $(this).css("background-color", "black");
     }
   });
+  
   $(".grid").click(function() {
     $(this).css("background-color", "black");
   })
+ 
+
+  const touchListener = document.querySelectorAll(".grid");
+
+  Array.from(touchListener).forEach(function(element) {
+    element.addEventListener("touchstart", function() {
+      isDown = true;
+      if (isDown) {
+        element.style.backgroundColor = "black";
+      }
+    })
+  });
+
+  Array.from(touchListener).forEach(function(element) {
+    element.addEventListener("touchend", function() {
+      isDown = false;
+    })
+  });
+
+  Array.from(touchListener).forEach(function(element) {
+    if (isDown) {
+      element.style.backgroundColor = "black";
+      console.log("Made it into the if statement");
+    }
+  });
+
 
   // Places pixelated image in grid-supercontainer
   var heightRatio = py/y;

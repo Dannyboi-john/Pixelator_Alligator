@@ -217,6 +217,7 @@ input {
   padding: 0;
   border: none;
   /* background-color: transparent; */
+  touch-action: none;
 }
 
 .pixelated-image {
