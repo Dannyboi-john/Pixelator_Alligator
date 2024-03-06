@@ -561,4 +561,30 @@ input {
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .grid {
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    border: none;
+    height: auto;
+    /* float: left; */
+    outline: 1px solid var(--grid-border);
+    background-color: transparent;
+    position: relative;
+  }
+
+  .clicked-grid {
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    height: auto;
+    margin: 0;
+    border: none;
+  /*   float: left; */
+    outline: 1px solid var(--grid-border);
+    background-color: black;
+    position: relative;
+  }
+  
 }
