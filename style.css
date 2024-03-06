@@ -165,11 +165,16 @@ input {
 }
 
 .clicked-grid {
+  display: inline-block;
+  margin-top: 0;
+  padding: 0;
+  height: auto;
   margin: 0;
   border: none;
-  float: left;
+/*   float: left; */
   outline: 1px solid var(--grid-border);
   background-color: black;
+  position: relative;
 }
 
 .canvas-class {
