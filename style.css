@@ -154,7 +154,7 @@ input {
 
 .grid {
   display: inline-block;
-  margin: 0;
+  margin: auto;
   padding: 0;
   border: none;
   height: 100%;
