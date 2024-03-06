@@ -145,6 +145,12 @@ function createGrid(x, y, px, py) {
   $(".grid").width(gridSelector.getBoundingClientRect().width / x);
   $(".grid").height(gridSelector.getBoundingClientRect().height / y);
 
+  // Sets minimum height and width of grid cells
+  let gridMinWidth = $(".grid").width(gridSelector.getBoundingClientRect().width / x);
+  $('.grid').css("min-width", gridMinWidth);
+  let gridMinHeight = $(".grid").height(gridSelector.getBoundingClientRect().height / y);
+  $('.grid').css("min-height", gridMinHeight);
+
   // Changes the square to black on click.
   var isDown = false;
 
@@ -187,7 +193,6 @@ function createGrid(x, y, px, py) {
   Array.from(touchListener).forEach(function(element) {
     if (isDown) {
       element.style.backgroundColor = "black";
-      console.log("Made it into the if statement");
     }
   });
 
