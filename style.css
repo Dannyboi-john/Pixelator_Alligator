@@ -95,7 +95,7 @@ input {
 
 .enter-button {
   display: flex;
-  padding: 20%;
+  padding: 17%;
   text-align: center;
   margin: auto;
   font-family: 'Poppins';
@@ -153,7 +153,8 @@ input {
 }
 
 .grid {
-  margin: 0;  
+  margin: 0;
+  padding: 0;
   border: none;
   float: left;
   outline: 1px solid var(--grid-border);
