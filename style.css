@@ -95,7 +95,7 @@ input {
 
 .enter-button {
   display: flex;
-  padding: 17%;
+  padding: 15%;
   text-align: center;
   margin: auto;
   font-family: 'Poppins';
@@ -546,7 +546,7 @@ input {
   }
 
   .enter-button {
-    padding: 20%;
+    padding: 15%;
     text-align: center;
     margin: auto;
     font-family: 'Poppins';
