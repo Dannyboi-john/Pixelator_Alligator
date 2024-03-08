@@ -150,6 +150,7 @@ function createGrid(x, y, px, py) {
   window.addEventListener("resize", recalculateGrid);
 
   const gridSelector = document.getElementById("grid-supercontainer");
+  const gridContainer = document.getElementById("grid-container");
 
   // Initiates the grid based on passed-in parameters
   for (var columns = 0; columns < y; columns++) {
@@ -161,13 +162,13 @@ function createGrid(x, y, px, py) {
   };
 
   // Gets the size of the empty div and populates it according to size
-  $(".grid").width(gridSelector.getBoundingClientRect().width / x);
-  $(".grid").height(gridSelector.getBoundingClientRect().height / y);
+  $(".grid").width(gridContainer.getBoundingClientRect().width / x);
+  $(".grid").height(gridContainer.getBoundingClientRect().height / y);
 
   // Sets minimum height and width of grid cells
-  let gridMinWidth = $(".grid").width(gridSelector.getBoundingClientRect().width / x);
+  let gridMinWidth = $(".grid").width(gridContainer.getBoundingClientRect().width / x);
   $('.grid').css("min-width", gridMinWidth);
-  let gridMinHeight = $(".grid").height(gridSelector.getBoundingClientRect().height / y);
+  let gridMinHeight = $(".grid").height(gridContainer.getBoundingClientRect().height / y);
   $('.grid').css("min-height", gridMinHeight);
 
   // Changes the square to black on click.
