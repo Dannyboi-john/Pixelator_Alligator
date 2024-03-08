@@ -146,75 +146,74 @@ document.addEventListener("keypress", function(event) {
 });
 
 function createGrid(x, y, px, py) {
-  if (isMobile) {
 
-    window.addEventListener("resize", recalculateGrid);
+  window.addEventListener("resize", recalculateGrid);
 
-    const gridSelector = document.getElementById("grid-supercontainer");
+  const gridSelector = document.getElementById("grid-supercontainer");
 
-    // Initiates the grid based on passed-in parameters
-    for (var columns = 0; columns < y; columns++) {
-      for (var rows = 0; rows < x; rows++) {
-        // Creates a unit of 1 empty div
-        var unit = $(`<div class='grid' id='cell'></div>`);
-        unit.appendTo('#grid-container');
-      };
+  // Initiates the grid based on passed-in parameters
+  for (var columns = 0; columns < y; columns++) {
+    for (var rows = 0; rows < x; rows++) {
+      // Creates a unit of 1 empty div
+      var unit = $(`<div class='grid' id='cell'></div>`);
+      unit.appendTo('#grid-container');
     };
+  };
 
-    // Gets the size of the empty div and populates it according to size
-    $(".grid").width(gridSelector.getBoundingClientRect().width / x);
-    $(".grid").height(gridSelector.getBoundingClientRect().height / y);
+  // Gets the size of the empty div and populates it according to size
+  $(".grid").width(gridSelector.getBoundingClientRect().width / x);
+  $(".grid").height(gridSelector.getBoundingClientRect().height / y);
 
-    // Sets minimum height and width of grid cells
-    let gridMinWidth = $(".grid").width(gridSelector.getBoundingClientRect().width / x);
-    $('.grid').css("min-width", gridMinWidth);
-    let gridMinHeight = $(".grid").height(gridSelector.getBoundingClientRect().height / y);
-    $('.grid').css("min-height", gridMinHeight);
+  // Sets minimum height and width of grid cells
+  let gridMinWidth = $(".grid").width(gridSelector.getBoundingClientRect().width / x);
+  $('.grid').css("min-width", gridMinWidth);
+  let gridMinHeight = $(".grid").height(gridSelector.getBoundingClientRect().height / y);
+  $('.grid').css("min-height", gridMinHeight);
 
-    // Changes the square to black on click.
-    var isDown = false;
+  // Changes the square to black on click.
+  var isDown = false;
 
-    $(".grid").mousedown(function() {
-      isDown = true;
-    })
+  $(".grid").mousedown(function() {
+    isDown = true;
+  })
 
-    $(".grid").mouseup(function() {
-      isDown = false;
-    })
+  $(".grid").mouseup(function() {
+    isDown = false;
+  })
 
-    $(".grid").mouseover(function() {
-      if(isDown) {
-        $(this).css("background-color", "black");
-      }
-    });
-    
-    $(".grid").click(function() {
+  $(".grid").mouseover(function() {
+    if(isDown) {
       $(this).css("background-color", "black");
-    })
-  
-
-    const touchListener = document.querySelectorAll(".grid");
-
-    Array.from(touchListener).forEach(function(element) {
-      element.addEventListener("touchstart", function() {
-        isDown = true;
-        if (isDown) {
-          element.style.backgroundColor = "black";
-        }
-      })
-    });
-
-    Array.from(touchListener).forEach(function(element) {
-      element.addEventListener("touchend", function() {
-        isDown = false;
-      })
-    });
-
-    Array.from(touchListener).forEach(function(element) {
-      if (isDown) {
-        element.style.backgroundColor = "black";
     }
   });
+  
+  $(".grid").click(function() {
+    $(this).css("background-color", "black");
+  })
+
+
+  const touchListener = document.querySelectorAll(".grid");
+
+  Array.from(touchListener).forEach(function(element) {
+    element.addEventListener("touchstart", function() {
+      isDown = true;
+      if (isDown) {
+        element.style.backgroundColor = "black";
+      }
+    })
+  });
+
+  Array.from(touchListener).forEach(function(element) {
+    element.addEventListener("touchend", function() {
+      isDown = false;
+    })
+  });
+
+  Array.from(touchListener).forEach(function(element) {
+    if (isDown) {
+      element.style.backgroundColor = "black";
+    }
+});
 
 
   // Places pixelated image in grid-supercontainer
@@ -241,101 +240,7 @@ function createGrid(x, y, px, py) {
 
   var showButtons = document.getElementById("grid-buttons-id")
   showButtons.style.display = "grid";
-  }
 
-  else {
-    const gridSelector = document.getElementById("grid-supercontainer");
-
-    // Initiates the grid based on passed-in parameters
-    for (var columns = 0; columns < y; columns++) {
-      for (var rows = 0; rows < x; rows++) {
-        // Creates a unit of 1 empty div
-        var unit = $(`<div class='grid' id='cell'></div>`);
-        unit.appendTo('#grid-container');
-      };
-    };
-
-    // Gets the size of the empty div and populates it according to size
-    $(".grid").width(gridSelector.getBoundingClientRect().width / x);
-    $(".grid").height(gridSelector.getBoundingClientRect().height / y);
-
-    // Sets minimum height and width of grid cells
-    let gridMinWidth = $(".grid").width(gridSelector.getBoundingClientRect().width / x);
-    $('.grid').css("min-width", gridMinWidth);
-    let gridMinHeight = $(".grid").height(gridSelector.getBoundingClientRect().height / y);
-    $('.grid').css("min-height", gridMinHeight);
-
-    // Changes the square to black on click.
-    var isDown = false;
-
-    $(".grid").mousedown(function() {
-      isDown = true;
-    })
-
-    $(".grid").mouseup(function() {
-      isDown = false;
-    })
-
-    $(".grid").mouseover(function() {
-      if(isDown) {
-        $(this).css("background-color", "black");
-      }
-    });
-    
-    $(".grid").click(function() {
-      $(this).css("background-color", "black");
-    })
-  
-
-    const touchListener = document.querySelectorAll(".grid");
-
-    Array.from(touchListener).forEach(function(element) {
-      element.addEventListener("touchstart", function() {
-        isDown = true;
-        if (isDown) {
-          element.style.backgroundColor = "black";
-        }
-      })
-    });
-
-    Array.from(touchListener).forEach(function(element) {
-      element.addEventListener("touchend", function() {
-        isDown = false;
-      })
-    });
-
-    Array.from(touchListener).forEach(function(element) {
-      if (isDown) {
-        element.style.backgroundColor = "black";
-    }
-  });
-
-
-  // Places pixelated image in grid-supercontainer
-  var heightRatio = py/y;
-  var widthRatio = px/x;
-  const gridSize = document.getElementById("grid-container");
-  var imageCreator = document.createElement("img");
-
-  // Sets attributes of pixelated image
-  imageCreator.setAttribute("id", "grid-image");
-  imageCreator.setAttribute("class", "pixelated-image");
-  imageCreator.setAttribute("width", (widthRatio * gridSize.getBoundingClientRect().width));
-  imageCreator.setAttribute("height", (heightRatio * gridSize.getBoundingClientRect().height));
-  let canvas = document.getElementById("myCanvas");
-  const pixelatedURL = canvas.toDataURL();
-  imageCreator.src = pixelatedURL;
-
-  // Appends image to the grid
-  gridSelector.appendChild(imageCreator);
-
-  // Hides canvas after image is appended
-  var canvasHider = document.getElementById("myCanvas");
-  canvasHider.style.display = "none";
-
-  var showButtons = document.getElementById("grid-buttons-id")
-  showButtons.style.display = "grid";
-  }
 };
 
 function gridStandalone(x, y) {
