@@ -226,11 +226,14 @@ function createGrid(x, y, px, py) {
   // Sets attributes of pixelated image
   imageCreator.setAttribute("id", "grid-image");
   imageCreator.setAttribute("class", "pixelated-image");
-  imageCreator.setAttribute("width", (widthRatio * gridSize.getBoundingClientRect().width));
-  imageCreator.setAttribute("height", (heightRatio * gridSize.getBoundingClientRect().height));
+  imageCreator.setAttribute("width", (widthRatio * gridSize.offsetWidth));
+  imageCreator.setAttribute("height", (heightRatio * gridSize.offsetHeight));
   let canvas = document.getElementById("myCanvas");
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
+
+  console.log($("#grid-container").width());
+  console.log($("#grid-container").height());
 
   // Appends image to the grid
   gridSelector.appendChild(imageCreator);
