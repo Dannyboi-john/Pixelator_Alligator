@@ -162,8 +162,8 @@ function createGrid(x, y, px, py) {
   };
 
   // Gets the size of the empty div and populates it according to size
-  $(".grid").width(gridContainer.getBoundingClientRect().width / x);
-  $(".grid").height(gridContainer.getBoundingClientRect().height / y);
+  $(".grid").width(gridContainer.offsetWidth / x);
+  $(".grid").height(gridContainer.offsetHeight / y);
 
   // Sets minimum height and width of grid cells
   let gridMinWidth = $(".grid").width(gridContainer.getBoundingClientRect().width / x);
@@ -231,9 +231,6 @@ function createGrid(x, y, px, py) {
   let canvas = document.getElementById("myCanvas");
   const pixelatedURL = canvas.toDataURL();
   imageCreator.src = pixelatedURL;
-
-  console.log($("#grid-container").width());
-  console.log($("#grid-container").height());
 
   // Appends image to the grid
   gridSelector.appendChild(imageCreator);
