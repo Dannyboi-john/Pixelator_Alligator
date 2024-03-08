@@ -469,6 +469,7 @@ input {
 
 .close-welcome-button {
   padding: 2%;
+  padding-right: 4%;
   text-align: center;
   margin: auto;
   font-family: 'Poppins';
