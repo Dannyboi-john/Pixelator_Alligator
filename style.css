@@ -153,12 +153,12 @@ input {
 }
 
 .grid {
-  display: inline-block;
+  display: flex;
   margin-top: 0;
   padding: 0;
   border: none;
   height: auto;
-  /* float: left; */
+  float: left;
   outline: 1px solid var(--grid-border);
   background-color: transparent;
   position: relative;
