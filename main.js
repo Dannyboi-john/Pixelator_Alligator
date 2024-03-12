@@ -147,8 +147,6 @@ document.addEventListener("keypress", function(event) {
 
 function createGrid(x, y, px, py) {
 
-  window.addEventListener("resize", recalculateGrid);
-
   const gridSelector = document.getElementById("grid-supercontainer");
   const gridContainer = document.getElementById("grid-container");
 
@@ -242,17 +240,6 @@ function createGrid(x, y, px, py) {
 
   var showButtons = document.getElementById("grid-buttons-id")
   showButtons.style.display = "grid";
-
-  alert(
-    `Cell width: ${document.getElementById('cell').getBoundingClientRect().width}
-    Cell height: ${document.getElementById('cell').getBoundingClientRect().height} \n
-    Grid Container width: ${gridContainer.getBoundingClientRect().width}
-    Grid Container height: ${gridContainer.getBoundingClientRect().height} \n
-    Grid Supercontainer width: ${gridSelector.getBoundingClientRect().width}
-    Grid Supercontainer height: ${gridSelector.getBoundingClientRect().height} \n
-    Pixelated image width: ${document.getElementById('grid-image').getBoundingClientRect().width}
-    Pixelated image height: ${document.getElementById('grid-image').getBoundingClientRect().height}`
-  )
 
 };
 
@@ -364,3 +351,15 @@ function recalculateGrid() {
     }, 500)
   }
 }
+
+// Logic for handling window resize / grid redraw.
+var dwidth = $(window).width();
+window.addEventListener("resize", function() {
+  var wwidth  = $(window).width();
+  if (dwidth !== wwidth) {
+    recalculateGrid();
+  }
+  else {
+    return;
+  }
+});
