@@ -346,3 +346,7 @@ window.addEventListener("resize", function() {
     return;
   }
 });
+
+screen.orientation.addEventListener("change", () => {
+  recalculateGrid();
+})
