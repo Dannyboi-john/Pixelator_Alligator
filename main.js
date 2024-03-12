@@ -9,23 +9,6 @@ import { clearGrid } from "./clear-grid.js";
 import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
-
-// Function checks whether or not application is being viewed on mobile device.
-var isMobile = false;
-window.onload = function() {
-  if (navigator.userAgent.match(/Android/i)
-  || navigator.userAgent.match(/webOS/i)
-  || navigator.userAgent.match(/iPhone/i)
-  || navigator.userAgent.match(/iPad/i)
-  || navigator.userAgent.match(/iPod/i)
-  || navigator.userAgent.match(/BlackBerry/i)
-  || navigator.userAgent.match(/Windows Phone/i)) {
-    isMobile = true;
-  } else {
-    isMobile = false;
-  }
-}
-
 // Sets up the welcome/tips dialogue.
 const welcomeModal = document.querySelector(".welcome-modal");
 const closeWelcomeModal = document.querySelector(".close-welcome-button");
