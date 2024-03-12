@@ -331,7 +331,7 @@ function recalculateGrid() {
       createGrid(gridInputx, gridInputy, inputx, inputy);
       updateGrid();
       reinitializeSnapping();
-    }, 500)
+    }, 1500)
   }
 }
 
