@@ -245,6 +245,14 @@ function createGrid(x, y, px, py) {
 
   // Logic for handling window resize / grid redraw.
   var dwidth = $(window).width();
+  window.addEventListener('resize', function() {
+    var wwidth = $(window).width();
+    if (dwidth !== wwidth) {
+      this.setTimeout(recalculateGrid, 500);
+    }
+  });
+
+/*   var dwidth = $(window).width();
   if (isMobile) {
     screen.orientation.addEventListener("change", () => {
       recalculateGrid();
@@ -262,7 +270,7 @@ function createGrid(x, y, px, py) {
       }
     });
   }
-
+ */
 };
 
 function gridStandalone(x, y) {
@@ -370,6 +378,6 @@ function recalculateGrid() {
       createGrid(gridInputx, gridInputy, inputx, inputy);
       updateGrid();
       reinitializeSnapping();
-    }, 1500)
+    }, 500)
   }
 }
