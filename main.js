@@ -242,6 +242,27 @@ function createGrid(x, y, px, py) {
   var showButtons = document.getElementById("grid-buttons-id")
   showButtons.style.display = "grid";
 
+
+  // Logic for handling window resize / grid redraw.
+  var dwidth = $(window).width();
+  if (isMobile) {
+    screen.orientation.addEventListener("change", () => {
+      recalculateGrid();
+      alert("Screen orientation changed!/ isMobile === true");
+    })
+  } else {
+    window.addEventListener("resize", function() {
+      var wwidth  = $(window).width();
+      if (dwidth !== wwidth) {
+        recalculateGrid();
+        this.alert("Grid Resized");
+      }
+      else {
+        return;
+      }
+    });
+  }
+
 };
 
 function gridStandalone(x, y) {
@@ -351,22 +372,4 @@ function recalculateGrid() {
       reinitializeSnapping();
     }, 1500)
   }
-}
-
-// Logic for handling window resize / grid redraw.
-var dwidth = $(window).width();
-if (isMobile) {
-  screen.orientation.addEventListener("change", () => {
-    recalculateGrid();
-  })
-} else {
-  window.addEventListener("resize", function() {
-    var wwidth  = $(window).width();
-    if (dwidth !== wwidth) {
-      recalculateGrid();
-    }
-    else {
-      return;
-    }
-  });
 }
