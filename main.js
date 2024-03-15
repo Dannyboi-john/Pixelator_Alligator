@@ -11,21 +11,10 @@ import { pixelate } from "./pixelate.js";
 
 
 // Function checks whether or not application is being viewed on mobile device.
-var isMobile = false;
-window.onload = function() {
-  if (navigator.userAgent.match(/Android/i)
-  || navigator.userAgent.match(/webOS/i)
-  || navigator.userAgent.match(/iPhone/i)
-  || navigator.userAgent.match(/iPad/i)
-  || navigator.userAgent.match(/iPod/i)
-  || navigator.userAgent.match(/BlackBerry/i)
-  || navigator.userAgent.match(/Windows Phone/i)) {
-    isMobile = true;
-  } else {
-    isMobile = false;
-  }
+function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
 }
-
 
 // Sets up the welcome/tips dialogue.
 const welcomeModal = document.querySelector(".welcome-modal");
@@ -245,12 +234,17 @@ function createGrid(x, y, px, py) {
 
   // Logic for handling window resize / grid redraw.
   var dwidth = $(window).width();
+
+
   window.addEventListener('resize', function() {
     var wwidth = $(window).width();
-    if (dwidth !== wwidth) {
+    if (isMobile()) {
+      return
+    } else {
       this.setTimeout(recalculateGrid, 500);
     }
   });
+  
 
 /*   var dwidth = $(window).width();
   if (isMobile) {
