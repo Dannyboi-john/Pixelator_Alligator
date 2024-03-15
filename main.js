@@ -31,6 +31,8 @@ tipsButton.addEventListener('click', () =>{
   welcomeModal.showModal();
 })
 
+var clicked = false;
+
 const pixelateButton = document.getElementById("pixelate-button");
 const gridButton = document.getElementById("myBtn");
 
@@ -39,7 +41,9 @@ pixelateButton.addEventListener('click', function() {
   var inputy = document.getElementById("userInputy").value;
   pixelate(inputx, inputy);
 });
+
 gridButton.addEventListener('click', function() {
+  window.clicked = true;
   getInput();
 });
 
@@ -233,17 +237,27 @@ function createGrid(x, y, px, py) {
 
 
   // Logic for handling window resize / grid redraw.
-  var dwidth = $(window).width();
+  // var dwidth = $(window).width();
 
 
-  window.addEventListener('resize', function() {
-    var wwidth = $(window).width();
-    if (isMobile()) {
+  window.onresize = (event) => {
+    if  (isMobile()) {
+      return;
+    } else {
+      setTimeout(recalculateGrid, 500);
+    }
+  };
+
+  // window.addEventListener('resize', function() {
+  //  var wwidth = $(window).width();
+
+
+/*     if (isMobile()) {
       return
     } else {
       this.setTimeout(recalculateGrid, 500);
     }
-  });
+  }); */
   
 
 /*   var dwidth = $(window).width();
