@@ -244,7 +244,9 @@ function createGrid(x, y, px, py) {
   window.onresize = (event) => {
     if (!(isMobile())) {
       setTimeout(recalculateGrid, 500);
-    };
+    } else {
+      setTimeout(recalculateGrid, 500);
+    }
   };
 
   // window.addEventListener('resize', function() {
