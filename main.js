@@ -14,6 +14,7 @@ import { pixelate } from "./pixelate.js";
 function isMobile() {
   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
   return regex.test(navigator.userAgent);
+  
 }
 
 // Sets up the welcome/tips dialogue.
@@ -241,11 +242,8 @@ function createGrid(x, y, px, py) {
 
 
   window.onresize = (event) => {
-    if  (isMobile()) {
-      return;
-    } else {
-      setTimeout(recalculateGrid, 10500);
-    }
+    if (!(isMobile())) {
+      setTimeout(recalculateGrid, 500);
   };
 
   // window.addEventListener('resize', function() {
@@ -279,6 +277,9 @@ function createGrid(x, y, px, py) {
     });
   }
  */
+  if (isMobile()) {
+    console.log("true");
+  };
 };
 
 function gridStandalone(x, y) {
