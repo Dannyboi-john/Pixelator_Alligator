@@ -244,7 +244,7 @@ function createGrid(x, y, px, py) {
     if  (isMobile()) {
       return;
     } else {
-      setTimeout(recalculateGrid, 500);
+      setTimeout(recalculateGrid, 10500);
     }
   };
 
