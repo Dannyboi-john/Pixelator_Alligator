@@ -9,6 +9,7 @@ import { clearGrid } from "./clear-grid.js";
 import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
+scrollWin();
 
 function scrollWin() { window.scrollTo(0, 0);}
 
@@ -248,8 +249,6 @@ function createGrid(x, y, px, py) {
   window.onresize = (event) => {
     if (!(isMobile())) {
       setTimeout(recalculateGrid, 500);
-    } else {
-      scrollWin();
     }
   };
 
