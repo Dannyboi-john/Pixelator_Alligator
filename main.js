@@ -10,6 +10,8 @@ import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
 
+function scrollWin() { window.scrollTo(0, 0);}
+
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
@@ -99,6 +101,8 @@ window.createHideButton = createHideButton;
 window.createColorPicker = createColorPicker;
 window.recalculateGrid = recalculateGrid;
 window.clearGrid = clearGrid;
+window.scrollWin = scrollWin;
+
 
 let browse = document.querySelector(".browse");
 let input = document.getElementById("browse-images")
@@ -245,7 +249,7 @@ function createGrid(x, y, px, py) {
     if (!(isMobile())) {
       setTimeout(recalculateGrid, 500);
     } else {
-      setTimeout(recalculateGrid, 500);
+      scrollWin();
     }
   };
 
