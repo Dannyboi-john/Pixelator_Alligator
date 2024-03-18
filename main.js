@@ -10,7 +10,7 @@ import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
 
-$("html,body,#wrapper").css({
+$("html, body, #wrapper").css({
   height: $(window).height()
 });
 
@@ -248,45 +248,9 @@ function createGrid(x, y, px, py) {
 
 
   window.onresize = (event) => {
-    if (!(isMobile())) {
-      setTimeout(recalculateGrid, 500);
-    }
+    setTimeout(recalculateGrid, 500);
   };
 
-  // window.addEventListener('resize', function() {
-  //  var wwidth = $(window).width();
-
-
-/*     if (isMobile()) {
-      return
-    } else {
-      this.setTimeout(recalculateGrid, 500);
-    }
-  }); */
-  
-
-/*   var dwidth = $(window).width();
-  if (isMobile) {
-    screen.orientation.addEventListener("change", () => {
-      recalculateGrid();
-      alert("Screen orientation changed!/ isMobile === true");
-    })
-  } else {
-    window.addEventListener("resize", function() {
-      var wwidth  = $(window).width();
-      if (dwidth !== wwidth) {
-        recalculateGrid();
-        this.alert("Grid Resized");
-      }
-      else {
-        return;
-      }
-    });
-  }
- */
-  if (isMobile()) {
-    console.log("true");
-  };
 };
 
 function gridStandalone(x, y) {
