@@ -9,9 +9,11 @@ import { clearGrid } from "./clear-grid.js";
 import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
-scrollWin();
 
-function scrollWin() { window.scrollTo(0, 0);}
+$("html,body,#wrapper").css({
+  height: $(window).height()
+});
+
 
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
@@ -102,7 +104,6 @@ window.createHideButton = createHideButton;
 window.createColorPicker = createColorPicker;
 window.recalculateGrid = recalculateGrid;
 window.clearGrid = clearGrid;
-window.scrollWin = scrollWin;
 
 
 let browse = document.querySelector(".browse");

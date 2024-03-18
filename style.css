@@ -3,8 +3,16 @@
 
 body {
   background: var(--background);
+  background-size: contain;
   margin: 0;
   padding-bottom: 20%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#wrapper {
+  overflow-y: scroll;
 }
 
 :root {
