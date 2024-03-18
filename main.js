@@ -14,7 +14,10 @@ $("html, body, #wrapper").css({
   height: $(window).height()
 });
 
-$('html').css('overflow', 'hidden');
+if (!(isMobile())) {
+  $('html').css('overflow', 'hidden');
+}
+
 
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
