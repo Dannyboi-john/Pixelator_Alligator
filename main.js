@@ -345,6 +345,9 @@ function recalculateGrid() {
   if (document.getElementById("cell") === null) {
     return
   } else {
+    $("html, body, #wrapper").css({
+      height: $(window).height()
+    });
     setTimeout(function() {
       document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
 
