@@ -14,12 +14,12 @@ $("html, body, #wrapper").css({
   height: $(window).height()
 });
 
+$('html').css('overflow', 'hidden');
 
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
   return regex.test(navigator.userAgent);
-  
 }
 
 // Sets up the welcome/tips dialogue.
@@ -37,8 +37,6 @@ tipsButton.addEventListener('click', () =>{
   welcomeModal.showModal();
 })
 
-var clicked = false;
-
 const pixelateButton = document.getElementById("pixelate-button");
 const gridButton = document.getElementById("myBtn");
 
@@ -49,7 +47,6 @@ pixelateButton.addEventListener('click', function() {
 });
 
 gridButton.addEventListener('click', function() {
-  window.clicked = true;
   getInput();
 });
 
@@ -244,9 +241,6 @@ function createGrid(x, y, px, py) {
 
 
   // Logic for handling window resize / grid redraw.
-  // var dwidth = $(window).width();
-
-
   window.onresize = (event) => {
     setTimeout(recalculateGrid, 500);
   };
@@ -269,7 +263,6 @@ function gridStandalone(x, y) {
   // Gets the size of the empty div and populates it according to size
   $(".grid").width(gridSelector.offsetWidth / x);
   $(".grid").height(gridSelector.offsetHeight / y);
-
 
 
   // Changes the square to black on click.
