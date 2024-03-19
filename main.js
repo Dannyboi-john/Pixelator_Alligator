@@ -210,7 +210,7 @@ function createGrid(x, y, px, py) {
     });
   }
 
-  for (var  i=0; i<gridElements.length; i++) {
+  for (var i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchmove', function(e) {
       e.preventDefault();
       e.stopPropagation();
