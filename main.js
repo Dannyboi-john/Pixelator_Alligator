@@ -191,7 +191,33 @@ function createGrid(x, y, px, py) {
     $(this).css("background-color", "black");
   })
 
+  
+  var gridElements = document.getElementsByClassName("grid");
 
+  for (var i=0; i<gridElements.length; i++) {
+    gridElements[i].addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      isDown = true;
+    });
+  }
+
+  for (var i=0; i<gridElements.length; i++) {
+    gridElements[i].addEventListener('touchend', function(e) {
+      e.preventDefault();
+      isDown = false;
+    });
+  }
+
+  for (var  i=0; i<gridElements.length; i++) {
+    gridElements[i].addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      if (isDown) {
+        $(this).css('background-color', 'black')
+      }
+    });
+  }
+
+/* 
   const touchListener = document.querySelectorAll(".grid");
 
   Array.from(touchListener).forEach(function(element) {
@@ -214,7 +240,7 @@ function createGrid(x, y, px, py) {
       element.style.backgroundColor = "black";
     }
 });
-
+ */
 
   // Places pixelated image in grid-supercontainer
   var heightRatio = py/y;
