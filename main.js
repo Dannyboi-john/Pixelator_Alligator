@@ -104,6 +104,7 @@ window.createHideButton = createHideButton;
 window.createColorPicker = createColorPicker;
 window.recalculateGrid = recalculateGrid;
 window.clearGrid = clearGrid;
+window.touchColor = touchColor;
 
 
 let browse = document.querySelector(".browse");
@@ -210,15 +211,10 @@ function createGrid(x, y, px, py) {
     });
   }
 
-  Array.from(gridElements).forEach(function(elem) {
-    elem.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (isDown) {
-        elem.style.backgroundColor = "black";
-      }
+    $('.grid').bind('touchmove', function(ev) {
+      var touch = ev.originalEvent.touches[0]
+      touchColor(touch.clientX, touch.clientY)
     })
-  })
 
 
 /*   for (var i=0; i<gridElements.length; i++) {
@@ -400,4 +396,15 @@ function recalculateGrid() {
       reinitializeSnapping();
     }, 500)
   }
+}
+
+function touchColor(x, y) {
+  $('.grid').each(function() {
+    if (!(
+      x <= $(this).offset().left || x >= $(this).offset().left + $(this).outerWidth() ||
+          y <= $(this).offset().top  || y >= $(this).offset().top + $(this).outerHeight()
+    )) {
+      $(this).css('background-color', 'black');
+    }
+  });
 }
