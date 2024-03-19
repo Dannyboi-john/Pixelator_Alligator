@@ -210,16 +210,28 @@ function createGrid(x, y, px, py) {
     });
   }
 
-  for (var i=0; i<gridElements.length; i++) {
+  Array.from(gridElements).forEach(function(elem) {
+    elem.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isDown) {
+        elem.style.backgroundColor = "black";
+      }
+    })
+  })
+
+
+/*   for (var i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchmove', function(e) {
       e.preventDefault();
       e.stopPropagation();
       if (isDown) {
-        $(this).css('background-color', 'black')
+        $(cellToColor).css('background-color', 'black');
+        console.log("isDown fired");
       }
     });
   }
-
+ */
 /* 
   const touchListener = document.querySelectorAll(".grid");
 
