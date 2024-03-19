@@ -54,6 +54,13 @@ export function createColorPicker() {
             $(this).css("background-color", color);
           }
         })
+
+        // Touching and dragging colors cells.
+        $('.grid').bind('touchmove', function(ev) {
+          var touch = ev.originalEvent.touches[0]
+          touchColor(touch.clientX, touch.clientY, color)
+        })
+
         $("#color-picker-button-id").css("color", color);
       })
     })

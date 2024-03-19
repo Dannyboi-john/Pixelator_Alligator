@@ -211,47 +211,12 @@ function createGrid(x, y, px, py) {
     });
   }
 
+  // Touching and dragging colors cells.
     $('.grid').bind('touchmove', function(ev) {
       var touch = ev.originalEvent.touches[0]
-      touchColor(touch.clientX, touch.clientY)
+      touchColor(touch.clientX, touch.clientY, 'black')
     })
 
-
-/*   for (var i=0; i<gridElements.length; i++) {
-    gridElements[i].addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (isDown) {
-        $(cellToColor).css('background-color', 'black');
-        console.log("isDown fired");
-      }
-    });
-  }
- */
-/* 
-  const touchListener = document.querySelectorAll(".grid");
-
-  Array.from(touchListener).forEach(function(element) {
-    element.addEventListener("touchstart", function() {
-      isDown = true;
-      if (isDown) {
-        element.style.backgroundColor = "black";
-      }
-    })
-  });
-
-  Array.from(touchListener).forEach(function(element) {
-    element.addEventListener("touchend", function() {
-      isDown = false;
-    })
-  });
-
-  Array.from(touchListener).forEach(function(element) {
-    if (isDown) {
-      element.style.backgroundColor = "black";
-    }
-});
- */
 
   // Places pixelated image in grid-supercontainer
   var heightRatio = py/y;
@@ -398,13 +363,13 @@ function recalculateGrid() {
   }
 }
 
-function touchColor(x, y) {
+function touchColor(x, y, color) {
   $('.grid').each(function() {
     if (!(
       x <= $(this).offset().left || x >= $(this).offset().left + $(this).outerWidth() ||
           y <= $(this).offset().top  || y >= $(this).offset().top + $(this).outerHeight()
     )) {
-      $(this).css('background-color', 'black');
+      $(this).css('background-color', color);
     }
   });
 }
