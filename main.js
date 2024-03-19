@@ -197,6 +197,7 @@ function createGrid(x, y, px, py) {
   for (var i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchstart', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       isDown = true;
     });
   }
@@ -204,6 +205,7 @@ function createGrid(x, y, px, py) {
   for (var i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchend', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       isDown = false;
     });
   }
@@ -211,6 +213,7 @@ function createGrid(x, y, px, py) {
   for (var  i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchmove', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       if (isDown) {
         $(this).css('background-color', 'black')
       }
