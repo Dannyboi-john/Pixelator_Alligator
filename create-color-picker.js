@@ -61,7 +61,7 @@ export function createColorPicker() {
           touchColor(touch.clientX, touch.clientY, color)
         })
 
-        $("#color-picker-button-id").css("color", color);
+        $("#color-picker-button-id").css("background-color", color);
       })
     })
   }

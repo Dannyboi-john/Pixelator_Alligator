@@ -30,9 +30,9 @@ function isMobile() {
 // Sets up the welcome/tips dialogue.
 const welcomeModal = document.querySelector(".welcome-modal");
 const closeWelcomeModal = document.querySelector(".close-welcome-button");
-$(document).ready(function() {
+/* $(document).ready(function() {
   welcomeModal.showModal();
-})
+}) */
 closeWelcomeModal.addEventListener('click', () => {
   welcomeModal.close();
 })
