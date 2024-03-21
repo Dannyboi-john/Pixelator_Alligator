@@ -10,14 +10,16 @@ import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
 
-$("html, body, #wrapper").css({
+/* $("html, body, #wrapper").css({
   height: $(window).height()
 });
+ */
 
+/* 
 if (!(isMobile())) {
   $('html').css('overflow', 'hidden');
 }
-
+ */
 
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
@@ -343,9 +345,9 @@ function recalculateGrid() {
   if (document.getElementById("cell") === null) {
     return
   } else {
-    $("html, body, #wrapper").css({
+/*     $("html, body, #wrapper").css({
       height: $(window).height()
-    });
+    }); */
     setTimeout(function() {
       document.getElementById("img-notice").innerHTML = "Recalculating your resized grid!";
 

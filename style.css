@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
 
+html {
+  height:
+}
 
 body {
   background: var(--background);
@@ -36,10 +39,10 @@ body {
   --dark-mode-text: lightgrey;
 }
 
-#page-footer-wrapper{
+/* #page-footer-wrapper{
   visibility: hidden;
 }
-
+ */
 
 .display-div {
   display: flex;
@@ -597,4 +600,10 @@ input {
     position: relative;
   }
   
+}
+
+.footer {
+  height: 10vh;
+  position: relative;
+  background-color: transparent;
 }
