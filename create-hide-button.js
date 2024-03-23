@@ -5,7 +5,7 @@ export function createHideButton() {
     $(document).ready(function() {
       $(".hide-button-class").click(function() {
         $("#grid-image").toggleClass("pixelated-image hide-fully");
-         if (document.getElementById("img-notice").innerHTML === "Your image has been pixelated below!") {
+        if (document.getElementById("img-notice").innerHTML === "Your image has been pixelated below!") {
           document.getElementById("img-notice").innerHTML = "Click/touch to color over image!";
         } else {
           document.getElementById("img-notice").innerHTML = "Your image has been pixelated below!";
