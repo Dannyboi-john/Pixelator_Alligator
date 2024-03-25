@@ -415,8 +415,8 @@ input {
 }
 
 .modal {
-  height: 25%;
-  width: 25%;
+  height: 30%;
+  width: 30%;
   background: linear-gradient(#9198e5, #5e2e51);;
   border-radius: 15px;
   font-family: 'Poppins';
