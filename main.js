@@ -366,13 +366,13 @@ function recalculateGrid() {
   }
 }
 
-function touchColor(x, y) {
+function touchColor(x, y, color) {
   $('.grid').each(function() {
     if (!(
       x <= $(this).offset().left || x >= $(this).offset().left + $(this).outerWidth() ||
       y <= $(this).offset().top  || y >= $(this).offset().top + $(this).outerHeight()
     )) {
-      $(this).css('background-color', 'black');
+      $(this).css('background-color', color);
     }
   });
 }

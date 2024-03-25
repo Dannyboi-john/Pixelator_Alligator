@@ -58,7 +58,7 @@ export function createColorPicker() {
         // Touching and dragging colors cells.
         $('.grid').bind('touchmove', function(ev) {
           var touch = ev.originalEvent.touches[0]
-          touchColor(touch.clientX, touch.clientY, color)
+          touchColor(touch.pageX, touch.pageY, color)
         })
 
         $("#color-picker-button-id").css("background-color", color);
