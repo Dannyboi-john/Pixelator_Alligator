@@ -66,6 +66,8 @@ function getInput() {
     alert("Oops! Looks like your image is bigger than the grid!");
   } else if (parseInt(gridInputx) > 150 || parseInt(gridInputy) > 150) {
     alert("Woah! That's a lot of grid cells! Try and keep it under 150 ;)");
+  } else if ((parseInt(gridInputx) > 20 || parseInt(gridInputy) > 20) && isMobile()) {
+    alert("It looks like you're on a mobile device! Try to keep the dimensions under 20x20")
   } else if (inputx === "") {
     gridStandalone(gridInputx, gridInputy);
     createClearButton();
@@ -107,6 +109,7 @@ window.createColorPicker = createColorPicker;
 window.recalculateGrid = recalculateGrid;
 window.clearGrid = clearGrid;
 window.touchColor = touchColor;
+window.isMobile = isMobile;
 
 
 let browse = document.querySelector(".browse");
