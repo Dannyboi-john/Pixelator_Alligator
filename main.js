@@ -9,18 +9,6 @@ import { clearGrid } from "./clear-grid.js";
 import { createColorPicker } from "./create-color-picker.js";
 import { pixelate } from "./pixelate.js";
 
-
-/* $("html, body, #wrapper").css({
-  height: $(window).height()
-});
- */
-
-/* 
-if (!(isMobile())) {
-  $('html').css('overflow', 'hidden');
-}
- */
-
 // Function checks whether or not application is being viewed on mobile device.
 function isMobile() {
   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
@@ -265,7 +253,17 @@ function createGrid(x, y, px, py) {
 
 function gridStandalone(x, y) {
   clearGrid();
-  window.addEventListener("resize", recalculateGrid);
+
+  if (!(isMobile())) {
+    window.onresize = (event) => {
+      recalculateGrid();
+    };
+  } else {
+    window.addEventListener("orientationchange", (event) => {
+      setTimeout(recalculateGrid, 500);
+    })
+  }
+
   const gridSelector = document.getElementById("grid-supercontainer");
 
   // Initiates the grid based on passed-in parameters
