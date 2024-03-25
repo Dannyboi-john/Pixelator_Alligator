@@ -256,6 +256,7 @@ function createGrid(x, y, px, py) {
 };
 
 function gridStandalone(x, y) {
+  clearGrid();
   window.addEventListener("resize", recalculateGrid);
   const gridSelector = document.getElementById("grid-supercontainer");
 
