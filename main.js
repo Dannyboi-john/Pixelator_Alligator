@@ -198,13 +198,12 @@ function createGrid(x, y, px, py) {
   })
 
   
-  var gridElements = document.getElementsByClassName("grid");
+/*   var gridElements = document.getElementsByClassName("grid");
 
   for (var i=0; i<gridElements.length; i++) {
     gridElements[i].addEventListener('touchstart', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      isDown = true;
     });
   }
 
@@ -212,16 +211,15 @@ function createGrid(x, y, px, py) {
     gridElements[i].addEventListener('touchend', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      isDown = false;
     });
-  }
+  } */
 
-  // Touching and dragging colors cells.
-    $('.grid').bind('touchmove', function(ev) {
-      var touch = ev.originalEvent.touches[0]
-      touchColor(touch.clientX, touch.clientY, 'black')
-    })
+  $('.grid').bind('touchmove', function(ev) {
+    var touch = ev.originalEvent.touches[0]
+    touchColor(touch.pageX, touch.pageY, 'black')
+  })
 
+  
 
   // Places pixelated image in grid-supercontainer
   var heightRatio = py/y;
@@ -368,13 +366,13 @@ function recalculateGrid() {
   }
 }
 
-function touchColor(x, y, color) {
+function touchColor(x, y) {
   $('.grid').each(function() {
     if (!(
       x <= $(this).offset().left || x >= $(this).offset().left + $(this).outerWidth() ||
-          y <= $(this).offset().top  || y >= $(this).offset().top + $(this).outerHeight()
+      y <= $(this).offset().top  || y >= $(this).offset().top + $(this).outerHeight()
     )) {
-      $(this).css('background-color', color);
+      $(this).css('background-color', 'black');
     }
   });
 }
