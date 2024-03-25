@@ -154,6 +154,8 @@ document.addEventListener("keypress", function(event) {
 
 function createGrid(x, y, px, py) {
 
+
+
   const gridSelector = document.getElementById("grid-supercontainer");
   const gridContainer = document.getElementById("grid-container");
 
@@ -249,9 +251,15 @@ function createGrid(x, y, px, py) {
 
 
   // Logic for handling window resize / grid redraw.
-  window.onresize = (event) => {
-    setTimeout(recalculateGrid, 500);
-  };
+  if (!(isMobile())) {
+    window.onresize = (event) => {
+      recalculateGrid();
+    };
+  } else {
+    window.addEventListener("orientationchange", (event) => {
+      setTimeout(recalculateGrid, 500);
+    })
+  }
 
 };
 
@@ -345,6 +353,7 @@ function reinitializeSnapping() {
 // Recalculates the size and shape of the grid on window resize.
 function recalculateGrid() {
   if (document.getElementById("cell") === null) {
+    console.log("if case reached");
     return
   } else {
 /*     $("html, body, #wrapper").css({
