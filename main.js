@@ -18,9 +18,9 @@ function isMobile() {
 // Sets up the welcome/tips dialogue.
 const welcomeModal = document.querySelector(".welcome-modal");
 const closeWelcomeModal = document.querySelector(".close-welcome-button");
-/* $(document).ready(function() {
-  welcomeModal.showModal();
-}) */
+
+
+
 closeWelcomeModal.addEventListener('click', () => {
   welcomeModal.close();
 })
@@ -188,22 +188,6 @@ function createGrid(x, y, px, py) {
   })
 
   
-/*   var gridElements = document.getElementsByClassName("grid");
-
-  for (var i=0; i<gridElements.length; i++) {
-    gridElements[i].addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    });
-  }
-
-  for (var i=0; i<gridElements.length; i++) {
-    gridElements[i].addEventListener('touchend', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    });
-  } */
-
   $('.grid').bind('touchmove', function(ev) {
     var touch = ev.originalEvent.touches[0]
     touchColor(touch.pageX, touch.pageY, 'black')
@@ -351,7 +335,6 @@ function reinitializeSnapping() {
 // Recalculates the size and shape of the grid on window resize.
 function recalculateGrid() {
   if (document.getElementById("cell") === null) {
-    console.log("if case reached");
     return
   } else {
 /*     $("html, body, #wrapper").css({
