@@ -91,6 +91,8 @@ input {
   background-color: var(--title-background-color);
   border-radius: 10px;
   box-shadow: 10px 10px 7px rgba(0, 122, 236, 0.13);
+  padding: 25px;
+  margin-top: 25px;
 }
 
 .button-container {
@@ -497,6 +499,7 @@ input {
     width: 100%;
     display: flex;
     font-size: 200%;
+    margin-top: 0;
   }
 
   .title-container {
