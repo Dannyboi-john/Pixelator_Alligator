@@ -22,5 +22,11 @@ In a nutshell, this software takes a user-submitted image and pixelates it accor
   <h3>Step 3:</h3> If you want your image to be overlain onto a grid, you can do that as well! Just select the dimesions of the grid (at least as big as the image) and away you go!
 </p>
 
+# Technologies Used 🛠️
+- HTML
+- CSS
+- Javascript
+- Interact.js library
+
 # Shout outs 📣
 My coach, the all-powerful Eti-abasi Umobong has been an incredible source of guidance, inspiration, and encouragement from inception to finalization. It was a pleasure to work with him on this, and I am tremendously grateful for his diligent navigation 🙏
